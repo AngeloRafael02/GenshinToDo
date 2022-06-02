@@ -1,0 +1,25 @@
+
+<div class="container">
+{{title}}
+<div class="row">
+    <div class="col-md-4"> <!--Clock-->
+        <app-clock></app-clock>
+        <app-timer></app-timer> 
+    </div>
+    <div class="col-md-8"> <!--NavBar-->
+        <nav>
+            <ul>
+                <li><a routerLink="/Characters">Characters</a></li>
+                <li><a routerLink="/Weapons">Weapons</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="col-md-12"> <!--View-->
+    <router-outlet></router-outlet>
+</div>
+<div class="col-md-12"> <!--ToDoList-->
+    <p>ToDoList</p>
+
+</div>
+</div>
