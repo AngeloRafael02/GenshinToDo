@@ -1,9 +1,9 @@
 
 const express = require('express'), 
-      router = express.Router(),
+      CharRouter = express.Router(),
       {pool} = require('../db');
 
-router.get('/Characters', async function(req,res){
+CharRouter.get('/Characters', async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM AllCharacters;");
@@ -11,8 +11,10 @@ router.get('/Characters', async function(req,res){
     } catch (error){
         console.log(error); 
     }
+
+    
 });      
-router.get(['/Characters/Monday', '/Characters/Thursday' ], async function(req,res){
+CharRouter.get(['/Characters/Monday', '/Characters/Thursday' ], async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM Day1characters;");
@@ -21,7 +23,7 @@ router.get(['/Characters/Monday', '/Characters/Thursday' ], async function(req,r
         console.log(error); 
     }
 });
-router.get(['/Characters/Tuesday', '/Characters/Friday' ], async function(req,res){
+CharRouter.get(['/Characters/Tuesday', '/Characters/Friday' ], async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM Day2characters;");
@@ -30,7 +32,7 @@ router.get(['/Characters/Tuesday', '/Characters/Friday' ], async function(req,re
         console.log(error); 
     }
 });
-router.get(['/Characters/Wednesday', '/Characters/Saturday' ], async function(req,res){
+CharRouter.get(['/Characters/Wednesday', '/Characters/Saturday' ], async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM Day3characters;");
@@ -41,4 +43,4 @@ router.get(['/Characters/Wednesday', '/Characters/Saturday' ], async function(re
 });
 
 
-module.exports = {router};
+module.exports = {CharRouter};
