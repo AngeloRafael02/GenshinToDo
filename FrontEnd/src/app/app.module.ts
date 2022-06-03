@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 import {HttpClientModule} from'@angular/common/http';
 //SERVICES
-import { MainService } from './main.service';
+import { MainService, WeaponService } from './main.service';
 //COMPONENTS
 import { AppComponent } from './app.component';
 import { ClockComponent } from './clock/clock.component';
@@ -25,7 +25,7 @@ import { TimerComponent } from './timer/timer.component';
     NgbModule,
     HttpClientModule
   ],
-  providers: [MainService],
+  providers: [MainService,WeaponService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
