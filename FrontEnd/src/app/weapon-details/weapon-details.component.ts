@@ -7,15 +7,13 @@ import { MainService } from '../main.service';
   selector: 'app-weapon-details',
   template:`
   <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
-    <p> Name: {{ weapons[weaponNumber].name }}
-      {{ weapons[weaponNumber].domain}}
-    </p>`,
+    `,
   styles: [``]
 })
 export class WeaponDetailsComponent implements OnInit {
 
   public weapons:weaponInterface[] = [];
-  public weaponNumber:number = 0;
+  public weaponNumber:number = 0; 
 
   constructor(
     private _mainService:MainService,

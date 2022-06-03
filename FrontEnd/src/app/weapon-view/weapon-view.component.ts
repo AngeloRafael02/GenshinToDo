@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { weaponInterface } from '../interfaces';
-import { MainService } from '../main.service';
+import { WeaponService } from '../main.service';
 
 @Component({
   selector: 'app-weapon-view',
@@ -27,17 +27,17 @@ import { MainService } from '../main.service';
 })
 export class WeaponViewComponent implements OnInit {
 
-  public Weapons:weaponInterface[] = []
+  public Weapons:weaponInterface[] = [];
   public weaponNumber:number = 0;
 
   constructor(
-    private _mainService:MainService,
+    private _weaponService:WeaponService,
     private route:ActivatedRoute,
     private router:Router
   ) { }
 
   ngOnInit(): void {
-    this._mainService.getWeaponView()
+    this._weaponService.getAllWeapons()
     .subscribe(data => this.Weapons = data);
 
     this.route.paramMap.subscribe((params:any)=>{
