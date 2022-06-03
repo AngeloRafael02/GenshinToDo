@@ -13,14 +13,14 @@ export interface characterInterface {
 
 export interface weaponInterface{
     id:Number,
-    star:Number,
     name:String,
-    secondaryStat:String,
-    weaponType:String,
-    domain:String,
+    star:Number,
+    type:String,
+    stat:String,
+    domainname:String,
     material:String,
-    availability:String[],
-    imgURL?:String
+    days?:String[],
+    imgURL:String
 }
 
 export interface toDoListInterface{
