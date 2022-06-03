@@ -10,7 +10,9 @@ import { MainService } from '../main.service';
     <p>Name: {{ content[charNumber].name }} ({{content[charNumber].type}} user)</p>
     <p>Element: {{content[charNumber].element}}</p>
     <p>Region: {{ content[charNumber].region }}</p>
-    <p>Talent Domain: {{ content[charNumber].domainname}}</p>
+    <p>Talent Domain: {{ content[charNumber].domainname }}</p>
+    <p>Talent Material: {{ content[charNumber].material }}</p>
+    <p>Available Days: {{ content[charNumber].days }}</p>
   `,
   styles: [``
   ]
