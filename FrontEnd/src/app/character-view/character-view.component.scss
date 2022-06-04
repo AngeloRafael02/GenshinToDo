@@ -1,0 +1,27 @@
+
+/*weekday Nav*/
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li { 
+    display: inline; 
+    margin-right: 1rem; }
+}
+/*Character View*/
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/*Character IMG*/
+.CharItem { 
+    width:90px; 
+    margin-top: 7px;
+    margin-right: -50px;
+    &:hover { 
+        border-style: solid;
+        border-color:grey; }
+    &:active{
+        border-color: black;}
+}

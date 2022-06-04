@@ -7,7 +7,7 @@ import { MainService } from '../main.service';
   selector: 'app-character-details',
   template: `
   <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
-    <p>Name: {{ content[charNumber].name }} ({{content[charNumber].type}} user)</p>
+    <p>Name: {{ content[charNumber].name | uppercase }} ({{content[charNumber].type}} user)</p>
     <p>Element: {{content[charNumber].element}}</p>
     <p>Region: {{ content[charNumber].region }}</p>
     <p>Talent Domain: {{ content[charNumber].domainname }}</p>

@@ -5,37 +5,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-view',
-  template: ` 
-  <p>CHARACTERS</p>
-  <nav>
-    <ul>
-        <li><a href="">Sunday</a></li>
-        <li><a href="">Monday</a></li>
-        <li><a href="">Tuesday</a></li>
-        <li><a href="">Wednesday</a></li>
-        <li><a href="">Thursday</a></li>
-        <li><a href="">Friday</a></li>
-        <li><a href="">Saturday</a></li>
-    </ul>
-  </nav>
-    <ul class="chars justify-content-center" *ngFor="let Character of Characters">
-      <abbr title="{{Character.name}}">
-      <img src="{{Character.imgurl}}" alt="{{Character.name}}" (click)="onSelect(Character)" [class.selected]="wasSelected(Character)">
-      </abbr>
-    </ul>
-  `,
-  styles: [`
-  img { width:7.5%; }
-  img:hover { border-style: solid; border-color:grey; }
-  img.selected{ border-style: solid; border-color:black; }
-  li { display: inline; margin-right: 1rem; }
-  `]
+  templateUrl:'character-view.component.html',
+  styleUrls: ['character-view.component.scss']
 })
 export class CharacterViewComponent implements OnInit {
 
   public Characters:characterInterface[] = [];
   public selectedId:number = 0;
-  
+
+  public day1Chars:characterInterface[] = [];
+  public day2Chars:characterInterface[] = [];
+  public day3Chars:characterInterface[] = [];
+
+
   constructor(
     private _mainService:MainService,
     private route:ActivatedRoute,
@@ -44,8 +26,11 @@ export class CharacterViewComponent implements OnInit {
 
   ngOnInit(): void {
    //service: subscribe to the function calling Character Data
-  this._mainService.getAllCharacters()
-    .subscribe(data => this.Characters = data);
+  this._mainService.getAllCharacters().subscribe(data => this.Characters = data);
+  this._mainService.getDayCharacters(0).subscribe(data => this.day1Chars = data); //Monday or Thursday Chars
+  this._mainService.getDayCharacters(1).subscribe(data => this.day2Chars = data); //Tuesday or Friday
+  this._mainService.getDayCharacters(2).subscribe(data => this.day3Chars = data); //Wednesday or Saturday
+
 
   //gets id from URL using optional Route Parameters(using the URL as a variable/argument)
     this.route.paramMap.subscribe((params:any)=>{
@@ -61,4 +46,6 @@ export class CharacterViewComponent implements OnInit {
   wasSelected(Character:any):boolean{ //return true item was selected, procs a class bind of css styles
     return Character.id === this.selectedId
   }
+
+ 
 }
