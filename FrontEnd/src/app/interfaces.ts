@@ -1,30 +1,30 @@
 export interface characterInterface {
-    id:Number,
-    name:String,
-    star:Number,
-    type:String,
-    element:String,
-    region:String,  
-    domainname:String,
-    material:String,
+    id:number,
+    name:string,
+    star:number,
+    type:string,
+    element:string,
+    region:string,  
+    domainname:string,
+    material:string,
     days?:string[],
-    imgurl:String
+    imgurl:string
 }
 
 export interface weaponInterface{
-    id:Number,
-    name:String,
-    star:Number,
-    type:String,
-    stat:String,
-    domainname:String,
-    material:String,
-    days?:String[],
-    imgURL:String
+    id:number,
+    name:string,
+    star:number,
+    type:string,
+    stat:string,
+    domainname:string,
+    material:string,
+    days?:string[],
+    imgURL:string
 }
 
 export interface toDoListInterface{
-    id:Number,
-    toDo:String
-    date:String[]
+    id:number,
+    toDo:string
+    date:string[]
 }
