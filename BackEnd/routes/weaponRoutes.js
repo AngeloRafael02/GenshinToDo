@@ -2,7 +2,7 @@ const express = require('express'),
       WeaponsRouter = express.Router(),
       {pool} = require('../db');
 
-WeaponsRouter.get('/Weapons', async function(req,res){
+WeaponsRouter.get('/Weapons/all', async function(req,res){
     try{
         const WeaponResponse = await pool.query(
             "SELECT * FROM AllWeapons;");
@@ -11,7 +11,7 @@ WeaponsRouter.get('/Weapons', async function(req,res){
         console.log(error); 
     }
 });
-WeaponsRouter.get(['/Weapons/Monday', '/Weapons/Thursday'], async function(req,res){
+WeaponsRouter.get(['/Weapons/day1'], async function(req,res){
     try{
         const WeaponResponse = await pool.query(
             "SELECT * FROM Day1Weapons;");
@@ -20,7 +20,7 @@ WeaponsRouter.get(['/Weapons/Monday', '/Weapons/Thursday'], async function(req,r
         console.log(error); 
     }
 });
-WeaponsRouter.get(['/Weapons/Tuesday', '/Weapons/Friday'], async function(req,res){
+WeaponsRouter.get(['/Weapons/day2'], async function(req,res){
     try{
         const WeaponResponse = await pool.query(
             "SELECT * FROM Day2Weapons;");
@@ -29,7 +29,7 @@ WeaponsRouter.get(['/Weapons/Tuesday', '/Weapons/Friday'], async function(req,re
         console.log(error); 
     }
 });
-WeaponsRouter.get(['/Weapons/Wednesday', '/Weapons/Saturday'], async function(req,res){
+WeaponsRouter.get(['/Weapons/day3'], async function(req,res){
     try{
         const WeaponResponse = await pool.query(
             "SELECT * FROM Day3Weapons;");
