@@ -10,13 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CharacterViewComponent implements OnInit {
 
-  public Characters:characterInterface[] = [];
   public selectedId:number = 0;
-
+  public Characters:characterInterface[] = [];
   public day1Chars:characterInterface[] = [];
   public day2Chars:characterInterface[] = [];
   public day3Chars:characterInterface[] = [];
-
 
   constructor(
     private _mainService:MainService,
@@ -30,8 +28,6 @@ export class CharacterViewComponent implements OnInit {
   this._mainService.getDayCharacters(0).subscribe(data => this.day1Chars = data); //Monday or Thursday Chars
   this._mainService.getDayCharacters(1).subscribe(data => this.day2Chars = data); //Tuesday or Friday
   this._mainService.getDayCharacters(2).subscribe(data => this.day3Chars = data); //Wednesday or Saturday
-
-
   //gets id from URL using optional Route Parameters(using the URL as a variable/argument)
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));
@@ -47,5 +43,16 @@ export class CharacterViewComponent implements OnInit {
     return Character.id === this.selectedId
   }
 
- 
+  showAllCharacters():void{
+    this.router.navigate(['allChars'], {relativeTo:this.route})
+  }
+  showDay1Characters(){
+    this.router.navigate(['day1chars'], {relativeTo:this.route})
+  }
+  showDay2Characters(){
+    this.router.navigate(['day2chars'], {relativeTo:this.route})
+  }
+  showDay3Characters(){
+    this.router.navigate(['day3chars'], {relativeTo:this.route})
+  }
 }
