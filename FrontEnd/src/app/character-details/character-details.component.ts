@@ -36,7 +36,7 @@ export class CharacterDetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));
-      this.charNumber = id - 1;
+      this.charNumber = id-1; //-1 is an Offset because DB's index starts at 1
     });
   }
   
@@ -50,7 +50,7 @@ export class CharacterDetailsComponent implements OnInit {
     this.router.navigate(['/Characters', {id:backId}]);
   }
   next():void{
-    let nextId:number = this.charNumber + 1;
+    let nextId:number = this.charNumber + 2; // adjustment to help with the Offset
     this.router.navigate(["/Characters",nextId])
   }
 }
