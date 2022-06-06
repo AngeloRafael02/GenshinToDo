@@ -11,7 +11,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CharacterViewComponent implements OnInit {
 
   public selectedId:number = 0;
-  public Characters:characterInterface[] = [];
   public day1Chars:characterInterface[] = [];
   public day2Chars:characterInterface[] = [];
   public day3Chars:characterInterface[] = [];
@@ -24,10 +23,9 @@ export class CharacterViewComponent implements OnInit {
 
   ngOnInit(): void {
    //service: subscribe to the function calling Character Data
-  this._mainService.getAllCharacters().subscribe(data => this.Characters = data);
-  this._mainService.getDayCharacters(0).subscribe(data => this.day1Chars = data); //Monday or Thursday Chars
-  this._mainService.getDayCharacters(1).subscribe(data => this.day2Chars = data); //Tuesday or Friday
-  this._mainService.getDayCharacters(2).subscribe(data => this.day3Chars = data); //Wednesday or Saturday
+  //this._mainService.getDay1Characters().subscribe(data => this.day1Chars = data); //Monday or Thursday Chars
+  //this._mainService.getDay1Characters().subscribe(data => this.day2Chars = data); //Tuesday or Friday
+  //this._mainService.getDay1Characters().subscribe(data => this.day3Chars = data); //Wednesday or Saturday
   //gets id from URL using optional Route Parameters(using the URL as a variable/argument)
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));

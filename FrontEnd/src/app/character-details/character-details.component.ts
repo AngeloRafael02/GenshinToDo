@@ -6,6 +6,7 @@ import { MainService } from '../main.service';
 @Component({
   selector: 'app-character-details',
   template: `
+  <p>CHARACTERS</p>
   <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
     <p>Name: {{ content[charNumber].name | uppercase }} ({{content[charNumber].type}} user)</p>
     <p>Element: {{content[charNumber].element}}</p>
