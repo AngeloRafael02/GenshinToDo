@@ -24,11 +24,11 @@ export class MainService {
   getAllCharacters():Observable<characterInterface[]>{
     return this.http.get<characterInterface[]>(this._CharacterRoutes[0]);
   }; 
-  getDayCharacters(day:number):Observable<characterInterface[]>{
-    if (day > 4){
+  getDayCharacters(number:number):Observable<characterInterface[]>{
+    if(number > 4){
       return this.http.get<characterInterface[]>(this._CharacterRoutes[0]);
-    } else {
-      return this.http.get<characterInterface[]>(this._CharacterRoutes[day]);
+    } else{
+      return this.http.get<characterInterface[]>(this._CharacterRoutes[number]);
     }
   };
 }

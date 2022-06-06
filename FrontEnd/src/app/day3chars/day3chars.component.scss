@@ -1,5 +1,3 @@
-
-/*weekday Nav*/
 ul{
     display: flex;
     flex-direction: row;
@@ -8,7 +6,7 @@ ul{
     display: inline; 
     margin-right: 1rem; }
 }
-/*Character View*/
+  /*Character View*/
 .container{
     display: flex;
     flex-direction: row;
@@ -24,7 +22,4 @@ ul{
         border-color:grey; }
     &:active{
         border-color: black;}
-}
-.router{
-    border-color: black;
 }
