@@ -14,9 +14,9 @@ import { Day2charsComponent } from './day2chars/day2chars.component';
 import { Day3charsComponent } from './day3chars/day3chars.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'/Characters', pathMatch:'full'}, //default Route
+  {path:'', redirectTo:'/Characters/allchars', pathMatch:'full'}, //default Route + child route
   {path:"Characters", component:CharacterViewComponent,
-    children:[{path:"allChars", component:AllcharsComponent },
+    children:[{path:"allchars", component:AllcharsComponent },
               {path:"day1chars", component:Day1charsComponent},
               {path:"day2chars", component:Day2charsComponent},
               {path:"day3chars", component:Day3charsComponent}]
