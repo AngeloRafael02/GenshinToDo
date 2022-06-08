@@ -48,7 +48,7 @@ export class CharacterDetailsComponent implements OnInit {
   }
   back():void{
     let backId = this.charNumber 
-    this.router.navigate(['/Characters', {id:backId}]);
+    this.router.navigate(['/Characters/allchars', {id:backId}]);
   }
   next():void{
     let nextId:number = this.charNumber + 2; // adjustment to help with the Offset

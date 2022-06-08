@@ -42,7 +42,7 @@ export class CharacterViewComponent implements OnInit {
   }
 
   showAllCharacters():void{
-    this.router.navigate(['allChars'], {relativeTo:this.route})
+    this.router.navigate(['allchars'], {relativeTo:this.route})
   }
   showDay1Characters(){
     this.router.navigate(['day1chars'], {relativeTo:this.route})
