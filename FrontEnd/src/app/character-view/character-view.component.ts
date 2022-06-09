@@ -1,31 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { characterInterface } from '../interfaces';
-import { MainService } from '../main.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-view',
-  templateUrl:'character-view.component.html',
+  template:`
+  <p>CHARACTERS</p>
+  <nav class="row">
+      <ul>
+          <li><button (click)="showAllCharacters()" type="button" class="btn btn-outline-primary">Sunday</button></li>
+          <li><button (click)="showDay1Characters()" type="button" class="btn btn-outline-primary">Monday</button></li>
+          <li><button (click)="showDay2Characters()" type="button" class="btn btn-outline-primary">Tuesday</button></li>
+          <li><button (click)="showDay3Characters()" type="button" class="btn btn-outline-primary">Wednesday</button></li>
+          <li><button (click)="showDay1Characters()" type="button" class="btn btn-outline-primary">Thursday</button></li>
+          <li><button (click)="showDay2Characters()" type="button" class="btn btn-outline-primary">Friday</button></li>
+          <li><button (click)="showDay3Characters()" type="button" class="btn btn-outline-primary">Saturday</button></li>
+      </ul>
+  </nav>
+  <div class="router">
+  <router-outlet></router-outlet>
+  </div>`,
   styleUrls: ['character-view.component.scss']
 })
 export class CharacterViewComponent implements OnInit {
 
   public selectedId:number = 0;
-  public day1Chars:characterInterface[] = [];
-  public day2Chars:characterInterface[] = [];
-  public day3Chars:characterInterface[] = [];
+
 
   constructor(
-    private _mainService:MainService,
     private route:ActivatedRoute,
     private router:Router
     ) { }
 
   ngOnInit(): void {
    //service: subscribe to the function calling Character Data
-  //this._mainService.getDay1Characters().subscribe(data => this.day1Chars = data); //Monday or Thursday Chars
-  //this._mainService.getDay1Characters().subscribe(data => this.day2Chars = data); //Tuesday or Friday
-  //this._mainService.getDay1Characters().subscribe(data => this.day3Chars = data); //Wednesday or Saturday
+
   //gets id from URL using optional Route Parameters(using the URL as a variable/argument)
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));

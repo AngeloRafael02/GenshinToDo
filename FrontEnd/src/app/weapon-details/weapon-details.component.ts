@@ -7,7 +7,8 @@ import { WeaponService } from '../main.service';
   selector: 'app-weapon-details',
   template:`
   <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
-    `,
+  <p>Name: {{ weapons[weaponNumber].name | uppercase }} ({{weapons[weaponNumber].type}} user)</p>  
+  `,
   styles: [``]
 })
 export class WeaponDetailsComponent implements OnInit {
@@ -29,7 +30,7 @@ export class WeaponDetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));
-      this.weaponNumber = id;
+      this.weaponNumber = id - 1;
     });
   }
 
@@ -43,7 +44,7 @@ export class WeaponDetailsComponent implements OnInit {
     this.router.navigate(['/Weapons', {id:backId}]);
   }
   next():void{
-    let nextId:number = this.weaponNumber + 1;
+    let nextId:number = this.weaponNumber + 2;
     this.router.navigate(["/Weapons",nextId])
   }
 

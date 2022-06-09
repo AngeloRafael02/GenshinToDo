@@ -51,7 +51,7 @@ export class WeaponService {
     return this.http.get<weaponInterface[]>(this._WeaponRoutes[0]);
   };
   getDaysWeapons(day:number){
-    if (day > 4 ){ 
+    if (day > 4){ 
       return this.http.get<weaponInterface[]>(this._WeaponRoutes[0]);
     } else {
       return this.http.get<weaponInterface[]>(this._WeaponRoutes[day]);

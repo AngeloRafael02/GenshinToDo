@@ -12,6 +12,7 @@ import { ClockComponent } from './clock/clock.component';
 import { TimerComponent } from './timer/timer.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
