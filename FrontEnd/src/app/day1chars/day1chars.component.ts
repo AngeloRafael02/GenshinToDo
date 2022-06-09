@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { characterInterface } from '../interfaces';
 import { MainService } from '../main.service';
 
@@ -26,7 +26,6 @@ export class Day1charsComponent implements OnInit {
 
   constructor(
     private _mainService:MainService,
-    private route:ActivatedRoute,
     private router:Router
   ) { }
 

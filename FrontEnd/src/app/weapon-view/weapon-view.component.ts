@@ -7,20 +7,19 @@ import { WeaponService } from '../main.service';
   selector: 'app-weapon-view',
   template: ` 
   <p>WEAPONS</p>
-  <nav>
+  <nav class="row">
     <ul>
-        <li><a href="">Sunday</a></li>
-        <li><a href="">Monday</a></li>
-        <li><a href="">Tuesday</a></li>
-        <li><a href="">Wednesday</a></li>
-        <li><a href="">Thursday</a></li>
-        <li><a href="">Friday</a></li>
-        <li><a href="">Saturday</a></li>
+        <li><button (click)="showAllWeapons()" type="button" class="btn btn-outline-primary">Sunday</button></li>
+        <li><button (click)="showDay1Weapons()" type="button" class="btn btn-outline-primary">Monday</button></li>
+        <li><button (click)="showDay2Weapons()" type="button" class="btn btn-outline-primary">Tuesday</button></li>
+        <li><button (click)="showDay3Weapons()" type="button" class="btn btn-outline-primary">Wednesday</button></li>
+        <li><button (click)="showDay1Weapons()" type="button" class="btn btn-outline-primary">Thursday</button></li>
+        <li><button (click)="showDay2Weapons()" type="button" class="btn btn-outline-primary">Friday</button></li>
+        <li><button (click)="showDay3Weapons()" type="button" class="btn btn-outline-primary">Saturday</button></li>
     </ul>
   </nav>
-  <ul *ngFor="let Weapon of Weapons">
-    <li (click)="onSelect(Weapon)" [class.selected]="wasSelected(Weapon)">{{Weapon.name}}</li>
-  </ul>`,
+  <router-outlet></router-outlet>
+`,
   styles: [`
   li { display: inline; margin-right: 1rem; }
   `]
@@ -52,6 +51,19 @@ export class WeaponViewComponent implements OnInit {
 
   wasSelected(Weapon:any):boolean{
     return Weapon.id === this.weaponNumber
+  }
+
+  showAllWeapons(){
+    this.router.navigate(['allWeapons'],{relativeTo:this.route})
+  }
+  showDay1Weapons(){
+    this.router.navigate(['day1weapons'],{relativeTo:this.route})
+  }
+  showDay2Weapons(){
+    this.router.navigate(['day2weapons'],{relativeTo:this.route})
+  }
+  showDay3Weapons(){
+    this.router.navigate(['day3weapons'],{relativeTo:this.route})
   }
 
 }

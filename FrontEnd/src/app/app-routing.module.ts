@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 //COMPONENTS
@@ -12,18 +12,28 @@ import { AllcharsComponent } from './allchars/allchars.component';
 import { Day1charsComponent } from './day1chars/day1chars.component';
 import { Day2charsComponent } from './day2chars/day2chars.component';
 import { Day3charsComponent } from './day3chars/day3chars.component';
+import { AllWeaponsComponent } from './allweapons/allweapons.component';
+import { Day1weaponsComponent } from './day1weapons/day1weapons.component';
+import { Day2weaponsComponent } from './day2weapons/day2weapons.component';
+import { Day3weaponsComponent } from './day3weapons/day3weapons.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/Characters/allchars', pathMatch:'full'}, //default Route + child route
+  
   {path:"Characters", component:CharacterViewComponent,
     children:[{path:"allchars", component:AllcharsComponent },
               {path:"day1chars", component:Day1charsComponent},
               {path:"day2chars", component:Day2charsComponent},
               {path:"day3chars", component:Day3charsComponent}]
-  },
-    {path:"Characters/:id", component:CharacterDetailsComponent},
-  {path:"Weapons", component:WeaponViewComponent},
-    {path:"Weapons/:id", component:WeaponDetailsComponent},
+  },{path:"Characters/:id", component:CharacterDetailsComponent},
+
+  {path:"Weapons", component:WeaponViewComponent,
+    children:[{path:"allWeapons", component:AllWeaponsComponent},
+              {path:"day1weapons", component:Day1weaponsComponent},
+              {path:"day2weapons", component:Day2weaponsComponent},
+              {path:"day3weapons", component:Day3weaponsComponent}]
+  },{path:"Weapons/:id", component:WeaponDetailsComponent},
+
   {path:"**", component:NotFoundComponent} //Wildcard Route
 ];
 
@@ -36,10 +46,12 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [ //Stored all components in an array for export in app.module.ts
   CharacterViewComponent,
+  //CHARACTER CHILD COMPONENTS
   AllcharsComponent,Day1charsComponent,Day2charsComponent,Day3charsComponent,
+  //WEAPONS CHILD COMPONENTS
+  AllWeaponsComponent,Day1weaponsComponent,Day2weaponsComponent,Day3weaponsComponent,
   CharacterDetailsComponent,
   WeaponViewComponent, 
   WeaponDetailsComponent,
   NotFoundComponent
-  
-];
+  ];
