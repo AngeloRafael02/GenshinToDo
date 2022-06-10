@@ -8,6 +8,10 @@ import { WeaponService } from '../main.service';
   template:`
   <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
   <p>Name: {{ weapons[weaponNumber].name | uppercase }} ({{weapons[weaponNumber].type}} user)</p>  
+  <p>Second Stat: {{weapons[weaponNumber].stat}} </p>
+  <p>Domain: {{weapons[weaponNumber].domainname}}</p>
+  <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
+  <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
   `,
   styles: [``]
 })
