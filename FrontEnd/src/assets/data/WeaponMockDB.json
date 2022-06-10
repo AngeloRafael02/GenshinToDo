@@ -1,4 +1,0 @@
-[
-    {"id":0,"star":3, "name":"Cool Steel", "secondaryStat":"Attack", "weaponType":"Sword", "domain":"Cecilia Garden", "material":"Decarabian", "availability":["Monday","Thursday","Sunday"]},
-    {"id":4,"star":4, "name":"The Stringless", "secondaryStat":"Elemental Mastery", "weaponType":"Bow", "domain":"Cecilia Garden", "material":"Decarabian", "availability":["Monday","Thursday","Sunday"]}
-]
