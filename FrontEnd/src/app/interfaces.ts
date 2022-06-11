@@ -7,7 +7,7 @@ export interface characterInterface {
     region:string,  
     domainname:string,
     material:string,
-    days?:string[],
+    days:string[],
     imgurl:string
 }
 
@@ -19,8 +19,8 @@ export interface weaponInterface{
     stat:string,
     domainname:string,
     material:string,
-    days?:string[],
-    imgURL:string
+    days:string[],
+    imgurl:string
 }
 
 export interface toDoListInterface{

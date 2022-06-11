@@ -6,14 +6,23 @@ import { WeaponService } from '../main.service';
 @Component({
   selector: 'app-weapon-details',
   template:`
+  <p>WEAPONS</p>
   <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
-  <p>Name: {{ weapons[weaponNumber].name | uppercase }} ({{weapons[weaponNumber].type}} user)</p>  
-  <p>Second Stat: {{weapons[weaponNumber].stat}} </p>
-  <p>Domain: {{weapons[weaponNumber].domainname}}</p>
-  <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
-  <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
-  `,
-  styles: [``]
+  <div class="row">
+  <div class="col-2">
+  <img class="WeaponItem" src="{{ weapons[weaponNumber].imgurl }}" alt="{{ weapons[weaponNumber].name }}">
+  </div>  
+  <div class="col-10">
+    <p>Name: {{ weapons[weaponNumber].name | uppercase }} ({{weapons[weaponNumber].type}} user)</p>  
+    <p>Second Stat: {{weapons[weaponNumber].stat}} </p>
+    <p>Domain: {{weapons[weaponNumber].domainname}}</p>
+    <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
+    <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
+  </div>
+  </div>`,
+  styles: [`
+  .WeaponItem{ max-width:160%; }
+  p{ margin-left:40px; }`]
 })
 export class WeaponDetailsComponent implements OnInit {
 

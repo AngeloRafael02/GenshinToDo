@@ -7,16 +7,25 @@ import { MainService } from '../main.service';
   selector: 'app-character-details',
   template: `
   <p>CHARACTERS</p>
-  <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
+  <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button> <br>
+  <div class="row">
+  <div class="col-2">
+    <img class="CharItem" src="{{ content[charNumber].imgurl }}" alt="{{ content[charNumber].name }}">
+  </div>
+  <div class="col-10">
     <p>Name: {{ content[charNumber].name | uppercase }} ({{content[charNumber].type}} user)</p>
     <p>Element: {{content[charNumber].element}}</p>
     <p>Region: {{ content[charNumber].region }}</p>
     <p>Talent Domain: {{ content[charNumber].domainname }}</p>
     <p>Talent Material: {{ content[charNumber].material }}</p>
     <p>Available Days: {{ content[charNumber].days }}</p>
+  </div>
+  </div>
   `,
-  styles: [``
-  ]
+  styles: [`
+  .CharItem{ max-width:160%; }
+  p{margin-left:40px;}
+  `]
 })
 export class CharacterDetailsComponent implements OnInit {
 

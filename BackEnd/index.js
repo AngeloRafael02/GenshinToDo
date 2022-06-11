@@ -5,8 +5,8 @@ const express = require('express'),
       cors = require('cors');
 
 app.use(cors());
-app.use('/', characterRoutes.CharRouter);
-app.use('/',weaponRoutes.WeaponsRouter)
+app.use('/Characters', characterRoutes.CharRouter);
+app.use('/Weapons',weaponRoutes.WeaponsRouter)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, function () {
