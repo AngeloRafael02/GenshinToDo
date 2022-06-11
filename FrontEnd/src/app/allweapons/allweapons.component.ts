@@ -6,12 +6,17 @@ import { WeaponService } from '../main.service';
 @Component({
   selector: 'app-allweapons',
   template: `
-  <ul *ngFor="let Weapon of Weapons">
-    <li (click)="onSelect(Weapon)">{{Weapon.name}}</li>
+  <div class="container">
+  <ul  *ngFor="let Weapon of Weapons" >
+      <li >
+          <abbr title="{{ Weapon.name }}">
+          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect(Weapon)" >
+          </abbr>
+      </li>
   </ul>
+  </div>
   `,
-  styles: [
-  ]
+  styleUrls: ['allweapons.component.scss']
 })
 export class AllWeaponsComponent implements OnInit {
 
