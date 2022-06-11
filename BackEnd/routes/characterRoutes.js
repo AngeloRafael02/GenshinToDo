@@ -3,7 +3,7 @@ const express = require('express'),
       CharRouter = express.Router(),
       {pool} = require('../db');
 
-CharRouter.get('/Characters/all', async function(req,res){
+CharRouter.get('/all', async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM AllCharacters;");
@@ -12,7 +12,7 @@ CharRouter.get('/Characters/all', async function(req,res){
         console.log(error); 
     }
 });      
-CharRouter.get(['/Characters/day1'], async function(req,res){
+CharRouter.get(['/day1'], async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM Day1characters;");
@@ -21,7 +21,7 @@ CharRouter.get(['/Characters/day1'], async function(req,res){
         console.log(error); 
     }
 });
-CharRouter.get(['/Characters/day2'], async function(req,res){
+CharRouter.get(['/day2'], async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM Day2characters;");
@@ -30,7 +30,7 @@ CharRouter.get(['/Characters/day2'], async function(req,res){
         console.log(error); 
     }
 });
-CharRouter.get(['/Characters/day3'], async function(req,res){
+CharRouter.get(['/day3'], async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM Day3characters;");
