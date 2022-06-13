@@ -1,3 +1,4 @@
+
 export interface characterInterface {
     id:number,
     name:string,
@@ -22,9 +23,7 @@ export interface weaponInterface{
     days:string[],
     imgurl:string
 }
-
-export interface toDoListInterface{
-    id:number,
-    toDo:string
-    date:string[]
+export interface ToDoInterface{
+    content:string;
+    completed:boolean;
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import { characterInterface } from '../interfaces';
-import { MainService } from '../main.service';
+import { characterInterface } from '../../interfaces';
+import { MainService } from '../../main.service';
 
 @Component({
   selector: 'app-character-details',
   template: `
-  <p>CHARACTERS</p>
-  <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button> <br>
+  <h4>Characters</h4>
+  <button class="btn btn-secondary" (click)="prev()">PREV</button> <button class="btn btn-secondary" (click)="back()">BACK</button> <button class="btn btn-secondary" (click)="next()">NEXT</button> <br>
   <div class="row">
   <div class="col-2">
     <img class="CharItem" src="{{ content[charNumber].imgurl }}" alt="{{ content[charNumber].name }}">
@@ -19,12 +19,13 @@ import { MainService } from '../main.service';
     <p>Talent Domain: {{ content[charNumber].domainname }}</p>
     <p>Talent Material: {{ content[charNumber].material }}</p>
     <p>Available Days: {{ content[charNumber].days }}</p>
+    <button class="Add btn btn-secondary">Add Talent Material To List</button>
   </div>
   </div>
   `,
   styles: [`
   .CharItem{ max-width:160%; }
-  p{margin-left:40px;}
+  p, .Add {margin-left:40px; margin-bottom:10px;}
   `]
 })
 export class CharacterDetailsComponent implements OnInit {

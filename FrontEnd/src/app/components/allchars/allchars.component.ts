@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { characterInterface } from '../interfaces';
-import { MainService } from '../main.service';
+import { characterInterface } from '../../interfaces';
+import { MainService } from '../../main.service';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
-  selector: 'app-day3chars',
+  selector: 'app-allchars',
   template: `
   <div class="container">
   <ul  *ngFor="let Character of Characters" >
@@ -16,9 +16,9 @@ import { MainService } from '../main.service';
   </ul>
   </div>
   `,
-  styleUrls: ['day3chars.component.scss']
+  styleUrls: ['allchars.component.scss']
 })
-export class Day3charsComponent implements OnInit {
+export class AllcharsComponent implements OnInit {
 
   public selectedId:number = 0;
   public Characters:characterInterface[] = [];
@@ -30,7 +30,7 @@ export class Day3charsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._mainService.getDayCharacters(3).subscribe(data => this.Characters = data);
+    this._mainService.getAllCharacters().subscribe(data => this.Characters = data);
   }
   onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
     this.router.navigate(['/Characters', Character.id]);
