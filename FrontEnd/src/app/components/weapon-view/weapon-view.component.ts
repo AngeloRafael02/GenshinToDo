@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import { weaponInterface } from '../interfaces';
-import { WeaponService } from '../main.service';
+import { weaponInterface } from '../../interfaces';
+import { WeaponService } from '../../main.service';
 
 @Component({
   selector: 'app-weapon-view',
   template: ` 
-  <p>WEAPONS</p>
+  <h4>Characters</h4>
   <nav class="row">
     <ul>
         <li><button (click)="showAllWeapons()" type="button" class="btn btn-outline-primary">Sunday</button></li>
@@ -18,11 +18,13 @@ import { WeaponService } from '../main.service';
         <li><button (click)="showDay3Weapons()" type="button" class="btn btn-outline-primary">Saturday</button></li>
     </ul>
   </nav>
-  <router-outlet></router-outlet>
+  <div class="container">
+    <div class="router">
+    <router-outlet></router-outlet>
+    </div>
+  </div>
 `,
-  styles: [`
-  li { display: inline; margin-right: 1rem; }
-  `]
+styleUrls: ['weapon-view.component.scss']
 })
 export class WeaponViewComponent implements OnInit {
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { weaponInterface } from '../interfaces';
-import { WeaponService } from '../main.service';
+import { weaponInterface } from '../../interfaces';
+import { WeaponService } from '../../main.service';
 
 @Component({
   selector: 'app-allweapons',

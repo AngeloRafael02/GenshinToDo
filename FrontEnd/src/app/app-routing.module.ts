@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 //COMPONENTS
-import { CharacterViewComponent } from './character-view/character-view.component';
-import { WeaponViewComponent } from './weapon-view/weapon-view.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { CharacterDetailsComponent } from './character-details/character-details.component';
-import { WeaponDetailsComponent } from './weapon-details/weapon-details.component';
+import { CharacterViewComponent } from './components/character-view/character-view.component';
+import { WeaponViewComponent } from './components/weapon-view/weapon-view.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CharacterDetailsComponent } from './components/character-details/character-details.component';
+import { WeaponDetailsComponent } from './components/weapon-details/weapon-details.component';
 //Child Route Components
-import { AllcharsComponent } from './allchars/allchars.component';
-import { Day1charsComponent } from './day1chars/day1chars.component';
-import { Day2charsComponent } from './day2chars/day2chars.component';
-import { Day3charsComponent } from './day3chars/day3chars.component';
-import { AllWeaponsComponent } from './allweapons/allweapons.component';
-import { Day1weaponsComponent } from './day1weapons/day1weapons.component';
-import { Day2weaponsComponent } from './day2weapons/day2weapons.component';
-import { Day3weaponsComponent } from './day3weapons/day3weapons.component';
+import { AllcharsComponent } from './components/allchars/allchars.component';
+import { Day1charsComponent } from './components/day1chars/day1chars.component';
+import { Day2charsComponent } from './components/day2chars/day2chars.component';
+import { Day3charsComponent } from './components/day3chars/day3chars.component';
+import { AllWeaponsComponent } from './components/allweapons/allweapons.component';
+import { Day1weaponsComponent } from './components/day1weapons/day1weapons.component';
+import { Day2weaponsComponent } from './components/day2weapons/day2weapons.component';
+import { Day3weaponsComponent } from './components/day3weapons/day3weapons.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/Characters/allchars', pathMatch:'full'}, //default Route + child route

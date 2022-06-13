@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { characterInterface } from '../interfaces';
+import { characterInterface } from '../../interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-view',
   template:`
-  <p>CHARACTERS</p>
+  <h4>Characters</h4>
   <nav class="row">
       <ul>
           <li><button (click)="showAllCharacters()" type="button" class="btn btn-outline-primary">Sunday</button></li>
@@ -17,8 +17,10 @@ import { ActivatedRoute, Router } from '@angular/router';
           <li><button (click)="showDay3Characters()" type="button" class="btn btn-outline-primary">Saturday</button></li>
       </ul>
   </nav>
-  <div class="router">
-  <router-outlet></router-outlet>
+  <div class="container">
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
   </div>`,
   styleUrls: ['character-view.component.scss']
 })

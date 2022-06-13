@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { characterInterface, weaponInterface } from './interfaces';
 
+
 @Injectable({  providedIn: 'root'})
 export class MainService {
   constructor(

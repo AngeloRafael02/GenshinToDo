@@ -15,7 +15,6 @@ export class ClockComponent implements OnInit {
   public ampm="";
   public day="";
 
-
   constructor(){
     this.updateDate(this.date);
   }

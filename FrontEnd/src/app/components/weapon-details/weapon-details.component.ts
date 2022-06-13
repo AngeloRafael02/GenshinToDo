@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import { weaponInterface } from '../interfaces';
-import { WeaponService } from '../main.service';
+import { weaponInterface } from '../../interfaces';
+import { WeaponService } from '../../main.service';
 
 @Component({
   selector: 'app-weapon-details',
   template:`
-  <p>WEAPONS</p>
+  <h4>Characters</h4>
   <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
   <div class="row">
   <div class="col-2">

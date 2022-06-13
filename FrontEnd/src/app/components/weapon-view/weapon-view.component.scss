@@ -1,0 +1,10 @@
+li { display: inline; margin-right: 1rem; }
+.container{
+    display: flexbox;
+    .router{
+        height: 400px;
+        flex: 1 1 auto;
+        position: relative;
+        overflow-y: auto;
+    }
+}
