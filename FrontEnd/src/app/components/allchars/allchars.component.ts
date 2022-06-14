@@ -30,7 +30,7 @@ export class AllcharsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._mainService.getAllCharacters().subscribe(data => this.Characters = data);
+    this._mainService.getAllCharacters(0).subscribe(data => this.Characters = data);
   }
   onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
     this.router.navigate(['/Characters', Character.id]);
