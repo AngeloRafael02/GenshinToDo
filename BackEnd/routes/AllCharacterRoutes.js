@@ -1,9 +1,9 @@
-
-const express = require('express'), 
+const express = require('express'),
       CharRouter = express.Router(),
       {pool} = require('../db');
 
-CharRouter.get('/all', async function(req,res){
+//ALL CHARACTER ROUTES
+CharRouter.get('/', async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM AllCharacters;");
@@ -11,32 +11,33 @@ CharRouter.get('/all', async function(req,res){
     } catch (error){
         console.log(error); 
     }
-});      
-CharRouter.get(['/day1'], async function(req,res){
+}); 
+CharRouter.get('/Mondstadt', async function(req,res){
     try{
         const charResponse = await pool.query(
-            "SELECT * FROM Day1characters;");
+            "SELECT * FROM AllCharacters WHERE region = 'Mondstadt';");
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
     }
-});
-CharRouter.get(['/day2'], async function(req,res){
+});   
+CharRouter.get('/Liyue', async function(req,res){
     try{
         const charResponse = await pool.query(
-            "SELECT * FROM Day2characters;");
+            "SELECT * FROM AllCharacters WHERE region = 'Liyue';");
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
     }
-});
-CharRouter.get(['/day3'], async function(req,res){
+});    
+CharRouter.get('/Inazuma', async function(req,res){
     try{
         const charResponse = await pool.query(
-            "SELECT * FROM Day3characters;");
+            "SELECT * FROM AllCharacters WHERE region = 'Inazuma';");
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
     }
-});
+}); 
+
 module.exports = {CharRouter};

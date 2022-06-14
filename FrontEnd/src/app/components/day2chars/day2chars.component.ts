@@ -25,12 +25,11 @@ export class Day2charsComponent implements OnInit {
 
   constructor(
     private _mainService:MainService,
-    private route:ActivatedRoute,
     private router:Router
   ) { }
 
   ngOnInit(): void {
-    this._mainService.getDayCharacters(2).subscribe(data => this.Characters = data);
+    this._mainService.getDay2Characters(0).subscribe(data => this.Characters = data)
   }
   onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
     this.router.navigate(['/Characters', Character.id]);

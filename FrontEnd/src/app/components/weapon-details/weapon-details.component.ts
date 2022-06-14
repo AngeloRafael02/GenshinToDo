@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { weaponInterface } from '../../interfaces';
-import { WeaponService } from '../../main.service';
+import { ToDoService, WeaponService } from '../../main.service';
 
 @Component({
   selector: 'app-weapon-details',
@@ -18,6 +18,7 @@ import { WeaponService } from '../../main.service';
     <p>Domain: {{weapons[weaponNumber].domainname}}</p>
     <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
     <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
+    <button (click)="sendToService()" class="Add btn btn-secondary">Add Talent Material To List Input</button>
   </div>
   </div>`,
   styles: [`
@@ -31,6 +32,7 @@ export class WeaponDetailsComponent implements OnInit {
 
   constructor(
     private _mainService:WeaponService,
+    private _toDoService:ToDoService,
     private route:ActivatedRoute,
     private router:Router
   ) { }
@@ -61,4 +63,8 @@ export class WeaponDetailsComponent implements OnInit {
     this.router.navigate(["/Weapons",nextId])
   }
 
+  sendToService(){
+    this._toDoService
+      .testMethod(`Grind ${this.weapons[this.weaponNumber].material} for ${this.weapons[this.weaponNumber].name} from ${this.weapons[this.weaponNumber].domainname}`)
+  }
 }

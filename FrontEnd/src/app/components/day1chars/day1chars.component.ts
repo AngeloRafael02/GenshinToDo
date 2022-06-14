@@ -6,23 +6,45 @@ import { MainService } from '../../main.service';
 @Component({
   selector: 'app-day1chars',
   template: `
-  <div class="container">
-  <ul  *ngFor="let Character of Characters" >
+  <p>MONDSTADT</p>
+  <div class="container">  
+  <ul  *ngFor="let Character of MondstadtCharacters" >
       <li >
           <abbr title="{{Character.name}}">
           <img class="CharItem" src="{{Character.imgurl}}" alt="{{Character.name}}" (click)="onSelect(Character)" >
           </abbr>
       </li>
-  </ul>
+  </ul><br>
+  </div>
+  <p>LIYUE</p>
+  <div class="container">
+  <ul  *ngFor="let Character of LiyueCharacters" >
+      <li >
+          <abbr title="{{Character.name}}">
+          <img class="CharItem" src="{{Character.imgurl}}" alt="{{Character.name}}" (click)="onSelect(Character)" >
+          </abbr>
+      </li>
+  </ul><br>
+  </div>
+  <p>INAZUMA</p>
+  <div class="container">
+  <ul  *ngFor="let Character of InazumaCharacters" >
+      <li >
+          <abbr title="{{Character.name}}">
+          <img class="CharItem" src="{{Character.imgurl}}" alt="{{Character.name}}" (click)="onSelect(Character)" >
+          </abbr>
+      </li>
+  </ul><br>
   </div>
   `,
   styleUrls: ['day1chars.component.scss']
 })
 export class Day1charsComponent implements OnInit {
-  public test = "Hello"
-  
+
   public selectedId:number = 0;
-  public Characters:characterInterface[] = [];
+  public MondstadtCharacters:characterInterface[] = [];
+  public LiyueCharacters:characterInterface[] = [];
+  public InazumaCharacters:characterInterface[]= [];
 
   constructor(
     private _mainService:MainService,
@@ -30,7 +52,9 @@ export class Day1charsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._mainService.getDayCharacters(1).subscribe(data => this.Characters = data);
+    this._mainService.getDay1Characters(0).subscribe(data => this.MondstadtCharacters = data);
+    this._mainService.getDay1Characters(1).subscribe(data => this.LiyueCharacters = data);
+    this._mainService.getDay1Characters(2).subscribe(data => this.InazumaCharacters = data);
   }
   onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
     this.router.navigate(['/Characters', Character.id]);

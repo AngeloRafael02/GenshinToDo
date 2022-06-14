@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { characterInterface } from '../../interfaces';
-import { MainService } from '../../main.service';
+import { MainService,ToDoService } from '../../main.service';
 
 @Component({
   selector: 'app-character-details',
@@ -19,7 +19,7 @@ import { MainService } from '../../main.service';
     <p>Talent Domain: {{ content[charNumber].domainname }}</p>
     <p>Talent Material: {{ content[charNumber].material }}</p>
     <p>Available Days: {{ content[charNumber].days }}</p>
-    <button class="Add btn btn-secondary">Add Talent Material To List</button>
+    <button (click)="sendToService()" class="Add btn btn-secondary">Add Talent Material To List Input</button>
   </div>
   </div>
   `,
@@ -35,6 +35,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   constructor(
     private _mainService:MainService,
+    public _toDoService:ToDoService,
     private route:ActivatedRoute,
     private router:Router,
   ) { }
@@ -42,7 +43,7 @@ export class CharacterDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.charNumber = this.route.snapshot.params['id']
 
-    this._mainService.getAllCharacters()
+    this._mainService.getAllCharacters(0)
     .subscribe(data => this.content = data);
 
     this.route.paramMap.subscribe((params:any)=>{
@@ -63,5 +64,10 @@ export class CharacterDetailsComponent implements OnInit {
   next():void{
     let nextId:number = this.charNumber + 2; // adjustment to help with the Offset
     this.router.navigate(["/Characters",nextId])
+  }
+  
+  sendToService(){
+    this._toDoService
+      .testMethod(`Grind ${this.content[this.charNumber].material} for ${this.content[this.charNumber].name} from ${this.content[this.charNumber].domainname} (${this.content[this.charNumber].region})`)
   }
 }
