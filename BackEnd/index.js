@@ -1,18 +1,25 @@
 const express = require('express'),
       app = express(),
-      Day1CharactersRouters = require('./routes/Day1CharacterRoutes'),
-      Day2CharactersRouters = require('./routes/Day2CharacterRoutes'),
-      Day3CharacterRouters = require('./routes/Day3CharacterRoutes'),
-      allCharacterRoutes = require('./routes/AllCharacterRoutes'),
-      weaponRoutes = require('./routes/weaponRoutes'),
-      cors = require('cors');
+      cors = require('cors'),
+      {WeaponsRouter} = require('./routes/weaponRoutes'),
+      {Day1WeaponRoutes} = require('./routes/Day1WeaponRoutes'),
+      {Day2WeaponRoutes} = require('./routes/Day2WeaponRoutes'),
+      {Day3WeaponRoutes} = require('./routes/Day3WeaponRoutes'),
+      {CharRouter} = require('./routes/AllCharacterRoutes'),
+      {Day1CharRoutes} = require('./routes/Day1CharacterRoutes'),
+      {Day2CharRoutes} = require('./routes/Day2CharacterRoutes'),
+      {Day3CharRoutes} = require('./routes/Day3CharacterRoutes');
+
 
 app.use(cors());
-app.use('/AllCharacters', allCharacterRoutes.CharRouter);
-app.use('/Day1Characters', Day1CharactersRouters.Day1CharRoutes);
-app.use('/Day2Characters', Day2CharactersRouters.Day2CharRoutes);
-app.use('/Day3Characters', Day3CharacterRouters.Day3CharRoutes);
-app.use('/Weapons',weaponRoutes.WeaponsRouter);
+app.use('/AllCharacters', CharRouter);
+app.use('/Day1Characters', Day1CharRoutes);
+app.use('/Day2Characters', Day2CharRoutes);
+app.use('/Day3Characters', Day3CharRoutes);
+app.use('/Weapons', WeaponsRouter);
+app.use('/Day1Weapons', Day1WeaponRoutes);
+app.use('/Day2Weapons', Day2WeaponRoutes);
+app.use('/Day3Weapons', Day3WeaponRoutes)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, function () {
