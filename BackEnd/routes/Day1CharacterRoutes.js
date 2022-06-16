@@ -2,7 +2,7 @@ const express = require('express'),
 Day1CharRoutes = express.Router(),
 {pool} = require('../db');
 
-//MONDAY - THURSDAY ROUTES
+//MONDAY - THURSDAY CHARACTER ROUTES
 Day1CharRoutes.get(['/Mondstadt'], async function(req,res){ //Mondstadt
     try{
         const charResponse = await pool.query(
