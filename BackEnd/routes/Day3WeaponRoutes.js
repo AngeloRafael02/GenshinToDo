@@ -2,7 +2,16 @@ const express = require("express"),
 Day3WeaponRoutes = express.Router(),
 {pool}=require('../db');
 
-//TUESDAY - FRIDAY WEAPONS ROUTES
+//WEDNESDAY - SATURDAY WEAPONS ROUTES
+Day3WeaponRoutes.get(['/All'],async function (req,res) {
+    try{
+        const WeaponResponse = await pool.query(
+            "SELECT * FROM Day3Weapons;");
+        res.json(WeaponResponse.rows);
+    } catch(error){
+        console.log(error)
+    }
+});
 Day3WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
     try{
         const WeaponResponse = await pool.query(
