@@ -3,7 +3,7 @@ const express = require('express'),
       {pool} = require('../db');
 
 //ALL CHARACTER ROUTES
-CharRouter.get('/', async function(req,res){
+CharRouter.get('/All', async function(req,res){
     try{
         const charResponse = await pool.query(
             "SELECT * FROM AllCharacters;");

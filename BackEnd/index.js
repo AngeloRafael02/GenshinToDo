@@ -1,7 +1,7 @@
 const express = require('express'),
       app = express(),
       cors = require('cors'),
-      {WeaponsRouter} = require('./routes/weaponRoutes'),
+      {WeaponsRouter} = require('./routes/AllWeaponRoutes'),
       {Day1WeaponRoutes} = require('./routes/Day1WeaponRoutes'),
       {Day2WeaponRoutes} = require('./routes/Day2WeaponRoutes'),
       {Day3WeaponRoutes} = require('./routes/Day3WeaponRoutes'),
@@ -16,7 +16,7 @@ app.use('/AllCharacters', CharRouter);
 app.use('/Day1Characters', Day1CharRoutes);
 app.use('/Day2Characters', Day2CharRoutes);
 app.use('/Day3Characters', Day3CharRoutes);
-app.use('/Weapons', WeaponsRouter);
+app.use('/AllWeapons', WeaponsRouter);
 app.use('/Day1Weapons', Day1WeaponRoutes);
 app.use('/Day2Weapons', Day2WeaponRoutes);
 app.use('/Day3Weapons', Day3WeaponRoutes)

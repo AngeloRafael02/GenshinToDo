@@ -26,7 +26,7 @@ export class MainService {
   ) { }
 
   private _ALLCharacterRoutes:string[] = [
-    "http://localhost:3000/AllCharacters/",
+    "http://localhost:3000/AllCharacters/All",
     "http://localhost:3000/AllCharacters/Mondstadt",
     "http://localhost:3000/AllCharacters/Liyue",
     "http://localhost:3000/AllCharacters/Inazuma",
@@ -35,6 +35,7 @@ export class MainService {
     return this.http.get<characterInterface[]>(this._ALLCharacterRoutes[index]);
   }; 
   private Day1CharacterRoutes:string[] =[
+    "http://localhost:3000/Day1Characters/All",
     "http://localhost:3000/Day1Characters/Mondstadt",
     "http://localhost:3000/Day1Characters/Liyue",
     "http://localhost:3000/Day1Characters/Inazuma",
@@ -70,10 +71,10 @@ export class WeaponService {
   ){};
 
   private _WeaponRoutes:string[] = [
-    "http://localhost:3000/Weapons/all",
-    "http://localhost:3000/Weapons/day1",
-    "http://localhost:3000/Weapons/day2",
-    "http://localhost:3000/Weapons/day3"
+    "http://localhost:3000/AllWeapons/all",
+    "http://localhost:3000/AllWeapons/day1",
+    "http://localhost:3000/AllWeapons/day2",
+    "http://localhost:3000/AllWeapons/day3"
   ];
 
   getAllWeapons():Observable<weaponInterface[]>{
@@ -85,5 +86,35 @@ export class WeaponService {
     } else {
       return this.http.get<weaponInterface[]>(this._WeaponRoutes[day]);
     } 
+  }
+
+  private Day1WeaponRoutes:string[] = [
+    "http://localhost:3000/Day1Weapons/All",
+    "http://localhost:3000/Day1Weapons/Mondstadt",
+    "http://localhost:3000/Day1Weapons/Liyue",
+    "http://localhost:3000/Day1Weapons/Inazuma",
+  ];
+  getDay1Weapons(index:number){
+    return this.http.get<weaponInterface[]>(this.Day1WeaponRoutes[index]);
+  }
+
+  private Day2WeaponRoutes:string[] = [
+    "http://localhost:3000/Day2Weapons/All",
+    "http://localhost:3000/Day2Weapons/Mondstadt",
+    "http://localhost:3000/Day2Weapons/Liyue",
+    "http://localhost:3000/Day2Weapons/Inazuma",
+  ];
+  getDay2Weapons(index:number){
+    return this.http.get<weaponInterface[]>(this.Day2WeaponRoutes[index]);
+  }
+
+  private Day3WeaponRoutes:string[] = [
+    "http://localhost:3000/Day3Weapons/All",
+    "http://localhost:3000/Day3Weapons/Mondstadt",
+    "http://localhost:3000/Day3Weapons/Liyue",
+    "http://localhost:3000/Day3Weapons/Inazuma",
+  ];
+  getDay3Weapons(index:number){
+    return this.http.get<weaponInterface[]>(this.Day3WeaponRoutes[index]);
   }
 }

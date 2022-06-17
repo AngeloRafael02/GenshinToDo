@@ -4,10 +4,10 @@ Day1WeaponRoutes = express.Router(),
 
 
 //MONDAY - THURSDAY WEAPONS ROUTES
-Day1WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
+Day1WeaponRoutes.get(['/All'],async function (req,res) {
     try{
         const WeaponResponse = await pool.query(
-            "SELECT * FROM Day1Weapons WHERE material = 'Decarabian';");
+            "SELECT * FROM Day1Weapons;");
         res.json(WeaponResponse.rows);
     } catch(error){
         console.log(error)
