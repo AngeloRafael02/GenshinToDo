@@ -3,6 +3,15 @@ Day1CharRoutes = express.Router(),
 {pool} = require('../db');
 
 //MONDAY - THURSDAY CHARACTER ROUTES
+Day1CharRoutes.get(['/All'], async function(req,res){ //Mondstadt
+    try{
+        const charResponse = await pool.query(
+            "SELECT * FROM Day1characters;");
+        res.json(charResponse.rows);
+    } catch (error){
+        console.log(error); 
+    }
+});
 Day1CharRoutes.get(['/Mondstadt'], async function(req,res){ //Mondstadt
     try{
         const charResponse = await pool.query(
