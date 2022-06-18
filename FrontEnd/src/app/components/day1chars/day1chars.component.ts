@@ -6,7 +6,7 @@ import { MainService } from '../../main.service';
 @Component({
   selector: 'app-day1chars',
   template: `
-  <p>MONDSTADT</p>
+  <p>FREEDOM (Forsaken Rift, Mondstadt)</p>
   <div class="container">  
   <ul  *ngFor="let Character of MondstadtCharacters" >
       <li >
@@ -16,7 +16,7 @@ import { MainService } from '../../main.service';
       </li>
   </ul><br>
   </div>
-  <p>LIYUE</p>
+  <p>PROSPERITY (Taishan Mansion, Liyue)</p>
   <div class="container">
   <ul  *ngFor="let Character of LiyueCharacters" >
       <li >
@@ -26,7 +26,7 @@ import { MainService } from '../../main.service';
       </li>
   </ul><br>
   </div>
-  <p>INAZUMA</p>
+  <p>TRANSIENCE (Violet Court, Inazuma)</p>
   <div class="container">
   <ul  *ngFor="let Character of InazumaCharacters" >
       <li >
@@ -52,9 +52,9 @@ export class Day1charsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._mainService.getDay1Characters(0).subscribe(data => this.MondstadtCharacters = data);
-    this._mainService.getDay1Characters(1).subscribe(data => this.LiyueCharacters = data);
-    this._mainService.getDay1Characters(2).subscribe(data => this.InazumaCharacters = data);
+    this._mainService.getDay1Characters(1).subscribe(data => this.MondstadtCharacters = data);
+    this._mainService.getDay1Characters(2).subscribe(data => this.LiyueCharacters = data);
+    this._mainService.getDay1Characters(3).subscribe(data => this.InazumaCharacters = data);
   }
   onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
     this.router.navigate(['/Characters', Character.id]);
