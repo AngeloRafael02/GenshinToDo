@@ -16,7 +16,7 @@ Day3CharRoutes.get(['/All'], async function(req,res){
 Day3CharRoutes.get(['/Mondstadt'], async function(req,res){
     try{
         const charResponse = await pool.query(
-            "SELECT * FROM Day3characters WHERE region = 'Mondstadt';");
+            "SELECT * FROM Day3characters WHERE material ='Ballad';");
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
@@ -25,7 +25,7 @@ Day3CharRoutes.get(['/Mondstadt'], async function(req,res){
 Day3CharRoutes.get(['/Liyue'], async function(req,res){
     try{
         const charResponse = await pool.query(
-            "SELECT * FROM Day3characters WHERE region = 'Liyue';");
+            "SELECT * FROM Day3characters WHERE material = 'Gold';");
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
@@ -34,7 +34,7 @@ Day3CharRoutes.get(['/Liyue'], async function(req,res){
 Day3CharRoutes.get(['/Inazuma'], async function(req,res){
     try{
         const charResponse = await pool.query(
-            "SELECT * FROM Day3characters WHERE region = 'Inazuma';");
+            "SELECT * FROM Day3characters WHERE material = 'Light';");
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 

@@ -56,7 +56,7 @@ export class WeaponDetailsComponent implements OnInit {
   }
   back():void{
     let backId = this.weaponNumber 
-    this.router.navigate(['/Weapons', {id:backId}]);
+    this.router.navigate(['/Weapons/allWeapons', {id:backId}]);
   }
   next():void{
     let nextId:number = this.weaponNumber + 2;

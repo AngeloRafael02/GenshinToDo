@@ -6,7 +6,7 @@ import { MainService } from '../../main.service';
 @Component({
   selector: 'app-day3chars',
   template: `
-  <p>MONDSTADT</p>
+  <p>BALLAD (Forsaken Rift, Mondstadt)</p>
   <div class="container">
   <ul  *ngFor="let Character of MondstadtCharacters" >
       <li >
@@ -16,7 +16,7 @@ import { MainService } from '../../main.service';
       </li>
   </ul>
   </div>
-  <p>LIYUE</p>
+  <p>GOLD (Taishan Mansion, Liyue)</p>
   <div class="container">
   <ul  *ngFor="let Character of LiyueCharacters" >
       <li >
@@ -26,7 +26,7 @@ import { MainService } from '../../main.service';
       </li>
   </ul>
   </div>
-  <p>INAZUMA</p>
+  <p>LIGHT (Violet Court, Inazuma)</p>
   <div class="container">
   <ul  *ngFor="let Character of InazumaCharacters" >
       <li >
