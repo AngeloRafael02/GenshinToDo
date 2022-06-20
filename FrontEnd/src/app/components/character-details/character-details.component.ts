@@ -7,7 +7,9 @@ import { MainService,ToDoService } from '../../main.service';
   selector: 'app-character-details',
   template: `
   <h4>Characters</h4>
-  <button class="btn btn-secondary" (click)="prev()">PREV</button> <button class="btn btn-secondary" (click)="back()">BACK</button> <button class="btn btn-secondary" (click)="next()">NEXT</button> <br>
+  <!--<button class="btn btn-secondary" (click)="prev()">PREV</button>-->
+  <button class="btn btn-secondary" (click)="back()">BACK</button> 
+  <!--<button class="btn btn-secondary" (click)="next()">NEXT</button>--> <br>
   <div class="row">
   <div class="col-2">
     <img class="CharItem" src="{{ content[charNumber].imgurl }}" alt="{{ content[charNumber].name }}">
