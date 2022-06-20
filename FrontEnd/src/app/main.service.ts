@@ -45,6 +45,7 @@ export class MainService {
   };
 
   private Day2CharacterRoutes:string[] =[
+    "http://localhost:3000/Day2Characters/All",
     "http://localhost:3000/Day2Characters/Mondstadt",
     "http://localhost:3000/Day2Characters/Liyue",
     "http://localhost:3000/Day2Characters/Inazuma",
@@ -54,6 +55,7 @@ export class MainService {
   };
 
   private Day3CharacterRoutes:string[] =[
+    "http://localhost:3000/Day3Characters/All",
     "http://localhost:3000/Day3Characters/Mondstadt",
     "http://localhost:3000/Day3Characters/Liyue",
     "http://localhost:3000/Day3Characters/Inazuma",

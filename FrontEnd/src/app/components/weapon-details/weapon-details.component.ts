@@ -7,7 +7,9 @@ import { ToDoService, WeaponService } from '../../main.service';
   selector: 'app-weapon-details',
   template:`
   <h4>Characters</h4>
-  <button (click)="prev()">PREV</button> <button (click)="back()">BACK</button> <button (click)="next()">NEXT</button>
+  <!--<button (click)="prev()">PREV</button> -->
+  <button (click)="back()">BACK</button> 
+  <!--<button (click)="next()">NEXT</button> -->
   <div class="row">
   <div class="col-2">
   <img class="WeaponItem" src="{{ weapons[weaponNumber].imgurl }}" alt="{{ weapons[weaponNumber].name }}">
