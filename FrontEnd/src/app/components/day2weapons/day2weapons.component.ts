@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Injector, OnInit } from '@angular/core';
 import { weaponInterface } from '../../interfaces';
-import { WeaponService } from '../../main.service';
+import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
 
 @Component({
   selector: 'app-day2weapons',
@@ -38,18 +37,19 @@ import { WeaponService } from '../../main.service';
   </div>`,
   styleUrls: ['./day2weapons.component.scss']
 })
-export class Day2weaponsComponent implements OnInit {
+export class Day2weaponsComponent extends BaseWeaponClassComponent implements OnInit {
 
-  public selectedId:number = 0;
-  public MondstadtWeapons:weaponInterface[]=[];
-  public LiyueWeapons:weaponInterface[]=[];
-  public InazumaWeapons:weaponInterface[]=[];
+  public selectedId = super.Id;
+  public MondstadtWeapons = super.Weapons;
+  public LiyueWeapons = super.Weapons;
+  public InazumaWeapons= super.Weapons;
 
   constructor(
-    private _weaponService:WeaponService,
-    private router:Router
-  ) { }
-
+   WeaponClassInjector:Injector
+  ) {
+    super(WeaponClassInjector)
+   }
+   
   ngOnInit(): void {
     this._weaponService.getDay2Weapons(1).subscribe(data => this.MondstadtWeapons = data)
     this._weaponService.getDay2Weapons(2).subscribe(data => this.LiyueWeapons = data)

@@ -6,7 +6,7 @@ import { WeaponService } from '../../main.service';
 @Component({
   selector: 'app-weapon-view',
   template: ` 
-  <h4>Characters</h4>
+  <h4>Weapons</h4>
   <nav class="row">
     <ul>
         <li><button (click)="showAllWeapons()" type="button" class="btn btn-outline-primary">Sunday</button></li>
