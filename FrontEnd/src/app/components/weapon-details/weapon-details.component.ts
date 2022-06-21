@@ -6,9 +6,9 @@ import { ToDoService, WeaponService } from '../../main.service';
 @Component({
   selector: 'app-weapon-details',
   template:`
-  <h4>Characters</h4>
-  <!--<button (click)="prev()">PREV</button> -->
-  <button (click)="back()">BACK</button> 
+  <h4>Weapons</h4>
+  <!--<button (click)="prev()" >PREV</button> -->
+  <button (click)="back()" class="btn btn-secondary">BACK</button> 
   <!--<button (click)="next()">NEXT</button> -->
   <div class="row">
   <div class="col-2">
@@ -20,7 +20,7 @@ import { ToDoService, WeaponService } from '../../main.service';
     <p>Domain: {{weapons[weaponNumber].domainname}}</p>
     <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
     <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
-    <button (click)="sendToService()" class="Add btn btn-secondary">Add Talent Material To List Input</button>
+    <button (click)="sendToService()" class="btn btn-secondary">Add Talent Material To List Input</button>
   </div>
   </div>`,
   styles: [`
