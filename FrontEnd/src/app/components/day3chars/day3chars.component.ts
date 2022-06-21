@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Injector, OnInit } from '@angular/core';
 import { characterInterface } from '../../interfaces';
-import { MainService } from '../../main.service';
+import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({
   selector: 'app-day3chars',
@@ -40,22 +39,23 @@ import { MainService } from '../../main.service';
   `,
   styleUrls: ['day3chars.component.scss']
 })
-export class Day3charsComponent implements OnInit {
+export class Day3charsComponent  extends BaseCharacterClassComponent implements OnInit {
 
-  public selectedId:number = 0;
-  public MondstadtCharacters:characterInterface[] = [];
-  public LiyueCharacters:characterInterface[] = [];
-  public InazumaCharacters:characterInterface[] = []
+  public selectedId = super.Id;
+  public MondstadtCharacters = super.Characters;
+  public LiyueCharacters = super.Characters;
+  public InazumaCharacters = super.Characters;
 
   constructor(
-    private _mainService:MainService,
-    private router:Router
-  ) { }
+   injector:Injector
+  ) {
+    super(injector)
+   }
 
   ngOnInit(): void {
-    this._mainService.getDay3Characters(0).subscribe(data => this.MondstadtCharacters = data);
-    this._mainService.getDay3Characters(1).subscribe(data => this.LiyueCharacters = data);
-    this._mainService.getDay3Characters(2).subscribe(data => this.InazumaCharacters = data);
+    this._mainService.getDay3Characters(1).subscribe(data => this.MondstadtCharacters = data);
+    this._mainService.getDay3Characters(2).subscribe(data => this.LiyueCharacters = data);
+    this._mainService.getDay3Characters(3).subscribe(data => this.InazumaCharacters = data);
   }
   onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
     this.router.navigate(['/Characters', Character.id]);

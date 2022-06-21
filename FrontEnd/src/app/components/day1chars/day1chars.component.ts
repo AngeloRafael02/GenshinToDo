@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Injector, OnInit } from '@angular/core';
 import { characterInterface } from '../../interfaces';
-import { MainService } from '../../main.service';
+import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({
   selector: 'app-day1chars',
@@ -39,17 +38,18 @@ import { MainService } from '../../main.service';
   `,
   styleUrls: ['day1chars.component.scss']
 })
-export class Day1charsComponent implements OnInit {
+export class Day1charsComponent extends BaseCharacterClassComponent implements OnInit {
 
-  public selectedId:number = 0;
-  public MondstadtCharacters:characterInterface[] = [];
-  public LiyueCharacters:characterInterface[] = [];
-  public InazumaCharacters:characterInterface[]= [];
+  public selectedId = super.Id;
+  public MondstadtCharacters = super.Characters;
+  public LiyueCharacters = super.Characters;
+  public InazumaCharacters = super.Characters;
 
   constructor(
-    private _mainService:MainService,
-    private router:Router
-  ) { }
+   injector:Injector
+  ) {
+    super(injector)
+   }
 
   ngOnInit(): void {
     this._mainService.getDay1Characters(1).subscribe(data => this.MondstadtCharacters = data);

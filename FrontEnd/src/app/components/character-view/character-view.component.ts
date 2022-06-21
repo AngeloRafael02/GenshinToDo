@@ -28,7 +28,6 @@ export class CharacterViewComponent implements OnInit {
 
   public selectedId:number = 0;
 
-
   constructor(
     private route:ActivatedRoute,
     private router:Router
