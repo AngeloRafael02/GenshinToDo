@@ -74,20 +74,16 @@ export class WeaponService {
 
   private _WeaponRoutes:string[] = [
     "http://localhost:3000/AllWeapons/all",
-    "http://localhost:3000/AllWeapons/day1",
-    "http://localhost:3000/AllWeapons/day2",
-    "http://localhost:3000/AllWeapons/day3"
+    "http://localhost:3000/AllWeapons/Mondstadt",
+    "http://localhost:3000/AllWeapons/Liyue",
+    "http://localhost:3000/AllWeapons/Inazuma"
   ];
 
   getAllWeapons():Observable<weaponInterface[]>{
     return this.http.get<weaponInterface[]>(this._WeaponRoutes[0]);
   };
-  getDaysWeapons(day:number){
-    if (day > 4){ 
-      return this.http.get<weaponInterface[]>(this._WeaponRoutes[0]);
-    } else {
-      return this.http.get<weaponInterface[]>(this._WeaponRoutes[day]);
-    } 
+  getAllDaysWeapons(day:number){
+    return this.http.get<weaponInterface[]>(this._WeaponRoutes[day]);
   }
 
   private Day1WeaponRoutes:string[] = [
