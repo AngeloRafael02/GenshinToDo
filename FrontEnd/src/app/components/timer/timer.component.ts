@@ -22,18 +22,28 @@ export class TimerComponent implements OnInit {
   ngOnInit(): void {
     setInterval(()=>{
       this.mainTimer();
-      if (this.mainTimer() == "00:00:00:00"){
-        clearInterval();
-      }
     },1000);
   }
 
   private TimerReset(now:Date):Date{
-    var ResetDay = new Date();
-        ResetDay.setDate(now.getDate() + (8 - 1 - now.getDay() + 7) % 7 + 1);
-        ResetDay.setHours(4,0,0,0);
+    var ResetDay:Date = new Date();
+    ResetDay.setDate(now.getDate() + (8 - 1 - now.getDay() + 8) % 7 + 1);
+    switch (ResetDay.getTimezoneOffset()){
+      //ASIA SERVER (UTC/GMT +8) --Not included, people from outside asia playing in asia server
+      case -480:ResetDay.setHours(4,0,0,0); //Asia/Singapore
+        break;
+      case -540:ResetDay.setHours(5,0,0,0); //Asia/Japan
+        break;
+      case -720:ResetDay.setHours(7,0,0,0); //Australia(Asia Server)
+        break;
+      case -900:ResetDay.setHours(9,0,0,0); //New Zealand
+        break;
+      
+    }
+    //console.log(ResetDay.toLocaleString())
     return ResetDay;
   }
+
   public mainTimer():string{
     const now:number  = new Date().getTime();
     const deadline:number = new Date(this.TimerReset(this.now)).getTime();
