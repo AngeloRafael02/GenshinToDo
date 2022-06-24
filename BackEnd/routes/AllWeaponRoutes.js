@@ -11,28 +11,28 @@ WeaponsRouter.get('/all', async function(req,res){
         console.log(error); 
     }
 });
-WeaponsRouter.get(['/day1'], async function(req,res){
+WeaponsRouter.get(['/Mondstadt'], async function(req,res){
     try{
         const WeaponResponse = await pool.query(
-            "SELECT * FROM Day1Weapons;");
+            "SELECT * FROM AllWeapons WHERE domainname = 'Cecilia Garden';");
         res.json(WeaponResponse.rows);
     } catch (error){
         console.log(error); 
     }
 });
-WeaponsRouter.get(['/day2'], async function(req,res){
+WeaponsRouter.get(['/Liyue'], async function(req,res){
     try{
         const WeaponResponse = await pool.query(
-            "SELECT * FROM Day2Weapons;");
+            "SELECT * FROM AllWeapons WHERE domainname = 'Hidden Palace of Lianshan Formula';");
         res.json(WeaponResponse.rows);
     } catch (error){
         console.log(error); 
     }
 });
-WeaponsRouter.get(['/day3'], async function(req,res){
+WeaponsRouter.get(['/Inazuma'], async function(req,res){
     try{
         const WeaponResponse = await pool.query(
-            "SELECT * FROM Day3Weapons;");
+            "SELECT * FROM AllWeapons WHERE domainname = 'Court of Flowing Sand'");
         res.json(WeaponResponse.rows);
     } catch (error){
         console.log(error); 
