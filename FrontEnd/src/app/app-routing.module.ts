@@ -16,16 +16,23 @@ import { AllWeaponsComponent } from './components/allweapons/allweapons.componen
 import { Day1weaponsComponent } from './components/day1weapons/day1weapons.component';
 import { Day2weaponsComponent } from './components/day2weapons/day2weapons.component';
 import { Day3weaponsComponent } from './components/day3weapons/day3weapons.component';
+import { Day1CharacterDetailsComponent } from './components/day1-character-details/day1-character-details.component';
+import { Day2CharacterDetailsComponent } from './components/day2-character-details/day2-character-details.component';
+import { Day3CharacterDetailsComponent } from './components/day3-character-details/day3-character-details.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/Characters/allchars', pathMatch:'full'}, //default Route + child route
   
   {path:"Characters", component:CharacterViewComponent,
     children:[{path:"allchars", component:AllcharsComponent },
-              {path:"day1chars", component:Day1charsComponent},
+              {path:"day1chars", component:Day1charsComponent,},
               {path:"day2chars", component:Day2charsComponent},
               {path:"day3chars", component:Day3charsComponent}]
-  },{path:"Characters/:id", component:CharacterDetailsComponent},
+  },
+  {path:"Characters/allchars/:id", component:CharacterDetailsComponent},
+  {path:"Characters/day1chars/:id", component:Day1CharacterDetailsComponent},
+  {path:"Characters/day2chars/:id", component:Day2CharacterDetailsComponent},
+  {path:"Characters/day3chars/:id", component:Day3CharacterDetailsComponent},
 
   {path:"Weapons", component:WeaponViewComponent,
     children:[{path:"allWeapons", component:AllWeaponsComponent},
@@ -48,10 +55,11 @@ export const routingComponents = [ //Stored all components in an array for expor
   CharacterViewComponent,
   //CHARACTER CHILD COMPONENTS
   AllcharsComponent,Day1charsComponent,Day2charsComponent,Day3charsComponent,
+  Day1CharacterDetailsComponent,Day2CharacterDetailsComponent,Day3CharacterDetailsComponent,
   //WEAPONS CHILD COMPONENTS
   AllWeaponsComponent,Day1weaponsComponent,Day2weaponsComponent,Day3weaponsComponent,
   CharacterDetailsComponent,
   WeaponViewComponent, 
   WeaponDetailsComponent,
-  NotFoundComponent
+  NotFoundComponent,
   ];
