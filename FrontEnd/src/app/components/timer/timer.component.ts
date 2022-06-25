@@ -30,9 +30,9 @@ export class TimerComponent implements OnInit {
     ResetDay.setDate(now.getDate() + (8 - 1 - now.getDay() + 8) % 7 + 1);
     switch (ResetDay.getTimezoneOffset()){
       //ASIA SERVER (UTC/GMT +8) --Not included, people from outside asia playing in asia server
-      case -480:ResetDay.setHours(4,0,0,0); //Asia/Singapore
+      case -480:ResetDay.setHours(4,0,0,0); //Asia / Singapore/Malaysia/Philippines
         break;
-      case -540:ResetDay.setHours(5,0,0,0); //Asia/Japan
+      case -540:ResetDay.setHours(5,0,0,0); //Asia / Japan
         break;
       case -720:ResetDay.setHours(7,0,0,0); //Australia(Asia Server)
         break;
