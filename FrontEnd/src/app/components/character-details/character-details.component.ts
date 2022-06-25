@@ -7,9 +7,9 @@ import { MainService,ToDoService } from '../../main.service';
   selector: 'app-character-details',
   template: `
   <h4>Characters</h4>
-  <!--<button class="btn btn-secondary" (click)="prev()">PREV</button>-->
+  <button class="btn btn-secondary" (click)="prev()">PREV</button>
   <button class="btn btn-secondary" (click)="back()">BACK</button> 
-  <!--<button class="btn btn-secondary" (click)="next()">NEXT</button>--> <br>
+  <button class="btn btn-secondary" (click)="next()">NEXT</button><br>
   <div class="row">
   <div class="col-2">
     <img class="CharItem" src="{{ content[charNumber].imgurl }}" alt="{{ content[charNumber].name }}">
@@ -57,15 +57,14 @@ export class CharacterDetailsComponent implements OnInit {
   prev():void{
     let prevId:number = this.charNumber - 1;
     if (prevId < 0) { prevId = 0; }
-    this.router.navigate(['/Characters',prevId])
+    this.router.navigate(['/Characters/allchars',prevId])
   }
   back():void{
-    let backId = this.charNumber 
-    this.router.navigate(['/Characters/allchars', {id:backId}]);
+    this.router.navigate(['/Characters/allchars']);
   }
   next():void{
     let nextId:number = this.charNumber + 2; // adjustment to help with the Offset
-    this.router.navigate(["/Characters",nextId])
+    this.router.navigate(["/Characters/allchars",nextId])
   }
   
   sendToService(){

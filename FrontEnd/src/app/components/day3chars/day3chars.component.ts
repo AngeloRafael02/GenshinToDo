@@ -1,5 +1,4 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { characterInterface } from '../../interfaces';
 import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({
@@ -57,9 +56,7 @@ export class Day3charsComponent  extends BaseCharacterClassComponent implements 
     this._mainService.getDay3Characters(2).subscribe(data => this.LiyueCharacters = data);
     this._mainService.getDay3Characters(3).subscribe(data => this.InazumaCharacters = data);
   }
-  onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
-    this.router.navigate(['/Characters/day3chars', Character.id]);
-  }
+
   onSelect2(index:number){  
     this.router.navigate(['Characters/day3chars',index]);
   }

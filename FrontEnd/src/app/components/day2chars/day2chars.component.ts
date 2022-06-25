@@ -57,9 +57,7 @@ export class Day2charsComponent extends BaseCharacterClassComponent implements O
     this._mainService.getDay2Characters(2).subscribe(data => this.LiyueCharacters = data);
     this._mainService.getDay2Characters(3).subscribe(data=> this.InazumaCharacters = data);
   }
-  onSelect(Character:characterInterface):void{ //navigates to a route according to the id number of the character
-    this.router.navigate(['/Characters/day2chars', Character.id]);
-  }
+
   onSelect2(index:number){  
     this.router.navigate(['Characters/day2chars',index]);
   }
