@@ -13,7 +13,6 @@ import { ClockComponent } from './components/clock/clock.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { ToDosComponent } from './components/to-dos/to-dos.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

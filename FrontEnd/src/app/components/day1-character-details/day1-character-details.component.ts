@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-import { characterInterface } from '../../interfaces';
-import { MainService,ToDoService } from '../../main.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { characterInterface } from 'src/app/interfaces';
+import { MainService, ToDoService } from 'src/app/main.service';
 
 @Component({
-  selector: 'app-character-details',
+  selector: 'app-day1-character-details',
   template: `
   <h4>Characters</h4>
   <button class="btn btn-secondary" (click)="prev()">PREV</button>
   <button class="btn btn-secondary" (click)="back()">BACK</button> 
-  <button class="btn btn-secondary" (click)="next()">NEXT</button><br>
+  <button class="btn btn-secondary" (click)="next()">NEXT</button> <br>
   <div class="row">
   <div class="col-2">
     <img class="CharItem" src="{{ content[charNumber].imgurl }}" alt="{{ content[charNumber].name }}">
@@ -27,10 +27,10 @@ import { MainService,ToDoService } from '../../main.service';
   `,
   styles: [`
   .CharItem{ max-width:160%; }
-  p, .Add {margin-left:40px; margin-bottom:10px;}
-  `]
+  p, .Add {margin-left:40px; margin-bottom:10px;}`
+  ]
 })
-export class CharacterDetailsComponent implements OnInit {
+export class Day1CharacterDetailsComponent implements OnInit {
 
   public content:characterInterface[] = [];
   public charNumber:number = 0;
@@ -45,7 +45,7 @@ export class CharacterDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.charNumber = this.route.snapshot.params['id']
 
-    this._mainService.getAllCharacters(0)
+    this._mainService.getDay1Characters(0)
     .subscribe(data => this.content = data);
 
     this.route.paramMap.subscribe((params:any)=>{
@@ -57,14 +57,14 @@ export class CharacterDetailsComponent implements OnInit {
   prev():void{
     let prevId:number = this.charNumber - 1;
     if (prevId < 0) { prevId = 0; }
-    this.router.navigate(['/Characters/allchars',prevId])
+    this.router.navigate(['/Characters/day1chars',prevId])
   }
   back():void{
-    this.router.navigate(['/Characters/allchars']);
+    this.router.navigate(['/Characters/day1chars']);
   }
   next():void{
     let nextId:number = this.charNumber + 2; // adjustment to help with the Offset
-    this.router.navigate(["/Characters/allchars",nextId])
+    this.router.navigate(["/Characters/day1chars",nextId])
   }
   
   sendToService(){

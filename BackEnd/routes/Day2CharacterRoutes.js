@@ -15,7 +15,7 @@ Day2CharRoutes.get(['/All'], async function(req,res){
             JOIN CharacterDomainMaterials ON Characters.DomainMaterial_id = CharacterDomainMaterials.id
             JOIN Availability ON Characters.Availabilties = Availability.id
             WHERE Availabilties = 2 
-            ORDER BY Regions.id, characters.id ASC;`);
+            ORDER BY CharacterDomainMaterials.id, characters.id ASC;`);
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
