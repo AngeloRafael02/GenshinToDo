@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { characterInterface } from 'src/app/interfaces';
-import { MainService, ToDoService } from 'src/app/main.service';
+import { Component, Injector, OnInit } from '@angular/core';
+import { CharacterDetailsBase } from '../Utils/base-character-detail.component';
 
 @Component({
   selector: 'app-day2-character-details',
@@ -29,18 +27,14 @@ import { MainService, ToDoService } from 'src/app/main.service';
   .CharItem{ max-width:160%; }
   p, .Add {margin-left:40px; margin-bottom:10px;}` ]
 })
-export class Day2CharacterDetailsComponent implements OnInit {
+export class Day2CharacterDetailsComponent extends CharacterDetailsBase implements OnInit {
 
+  public content = super.Character;
+  public charNumber = super.Number;
 
-  public content:characterInterface[] = [];
-  public charNumber:number = 0;
-
-  constructor(
-    private _mainService:MainService,
-    public _toDoService:ToDoService,
-    private route:ActivatedRoute,
-    private router:Router,
-  ) { }
+  constructor(CharacterDetailInjector:Injector){
+    super(CharacterDetailInjector)
+  }
 
   ngOnInit(): void {
     this.charNumber = this.route.snapshot.params['id']

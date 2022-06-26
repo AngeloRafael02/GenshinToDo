@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Injector, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { characterInterface } from '../../interfaces';
 import { MainService,ToDoService } from '../../main.service';
+import { CharacterDetailsBase } from '../Utils/base-character-detail.component';
 
 @Component({
   selector: 'app-character-details',
@@ -30,17 +31,14 @@ import { MainService,ToDoService } from '../../main.service';
   p, .Add {margin-left:40px; margin-bottom:10px;}
   `]
 })
-export class CharacterDetailsComponent implements OnInit {
+export class CharacterDetailsComponent extends CharacterDetailsBase implements OnInit {
 
-  public content:characterInterface[] = [];
-  public charNumber:number = 0;
+  public content = super.Character;
+  public charNumber = super.Number;
 
-  constructor(
-    private _mainService:MainService,
-    public _toDoService:ToDoService,
-    private route:ActivatedRoute,
-    private router:Router,
-  ) { }
+  constructor(CharacterDetailInjector:Injector) {
+    super(CharacterDetailInjector)
+   }
 
   ngOnInit(): void {
     this.charNumber = this.route.snapshot.params['id']
