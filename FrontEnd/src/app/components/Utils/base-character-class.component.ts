@@ -1,4 +1,3 @@
-
 import { Injector } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { characterInterface } from 'src/app/interfaces';
@@ -12,11 +11,11 @@ export class BaseCharacterClassComponent  {
 
   protected _mainService:MainService;
   protected router:Router;
-  protected route:ActivatedRoute
+  protected route:ActivatedRoute;
 
   constructor(injector:Injector){
     this._mainService = injector.get(MainService);
-    this.router = injector.get(Router)
-    this.route = injector.get(ActivatedRoute)
+    this.router = injector.get(Router);
+    this.route = injector.get(ActivatedRoute);
   }
 }

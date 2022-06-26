@@ -1,7 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { weaponInterface } from '../../interfaces';
-import { WeaponService } from '../../main.service';
 import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
 
 @Component({
@@ -9,30 +7,30 @@ import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
   template: `
   <p>DECARABIAN (Cecilia Garden, Mondstadt)</p>
   <div class="container">
-  <ul  *ngFor="let Weapon of MondstadtWeapons" >
+  <ul  *ngFor="let Weapon of MondstadtWeapons; let i = index;" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect(Weapon)" >
+          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+1)" >
           </abbr>
       </li>
   </ul>
   </div>
   <p>GUYUN (Hidden Palace of Lianshan Formula, Liyue)</p>
   <div class="container">
-  <ul  *ngFor="let Weapon of LiyueWeapons" >
+  <ul  *ngFor="let Weapon of LiyueWeapons; let i = index;" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect(Weapon)" >
+          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+18)" >
           </abbr>
       </li>
   </ul>
   </div>
   <p>DISTANT SEA (Court of Flowing Sand, Inazuma)</p>
   <div class="container">
-  <ul  *ngFor="let Weapon of InazumaWeapons" >
+  <ul  *ngFor="let Weapon of InazumaWeapons; let i = index;" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect(Weapon)" >
+          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+34)" >
           </abbr>
       </li>
   </ul>
@@ -58,7 +56,10 @@ export class Day1weaponsComponent extends BaseWeaponClassComponent implements On
     this._weaponService.getDay1Weapons(3).subscribe(data => this.InazumaWeapons = data);
   }
   onSelect(Weapon:weaponInterface):void{
-    this.router.navigate(['/Weapons',Weapon.id])
+    this.router.navigate(['/Weapons/day1weapons',Weapon.id])
+  }
+  onSelect2(index:number){  
+    this.router.navigate(['/Weapons/day1weapons',index]);
   }
 
 }

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-import { weaponInterface } from '../../interfaces';
-import { ToDoService, WeaponService } from '../../main.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { weaponInterface } from 'src/app/interfaces';
+import { ToDoService, WeaponService } from 'src/app/main.service';
 
 @Component({
-  selector: 'app-weapon-details',
-  template:`
+  selector: 'app-day2-weapon-details',
+  template: `
   <h4>Weapons</h4>
   <button (click)="prev()" class="btn btn-secondary">PREV</button>
   <button (click)="back()" class="btn btn-secondary">BACK</button> 
-  <button (click)="next()" class="btn btn-secondary">NEXT</button> <br>
+  <button (click)="next()" class="btn btn-secondary">NEXT</button><br>
   <div class="row">
   <div class="col-2">
   <img class="WeaponItem" src="{{ weapons[weaponNumber].imgurl }}" alt="{{ weapons[weaponNumber].name }}">
@@ -22,14 +22,15 @@ import { ToDoService, WeaponService } from '../../main.service';
     <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
     <button (click)="sendToService()" class="btn btn-secondary">Add Talent Material To List Input</button>
   </div>
-  </div>`,
+  </div>
+  `,
   styles: [`
   .WeaponItem{ max-width:160%; }
   p{ margin-left:40px; }`]
 })
-export class WeaponDetailsComponent implements OnInit {
+export class Day2WeaponDetailsComponent implements OnInit {
 
-  public weapons:weaponInterface[] = [];
+  public weapons:weaponInterface[]=[];
   public weaponNumber:number = 0; 
 
   constructor(
@@ -42,8 +43,7 @@ export class WeaponDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.weaponNumber = this.route.snapshot.params['id']
 
-    this._mainService.getAllWeapons()
-    .subscribe(data => this.weapons = data);
+    this._mainService.getDay2Weapons(0).subscribe(data => this.weapons= data);
 
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));
@@ -54,14 +54,14 @@ export class WeaponDetailsComponent implements OnInit {
   prev():void{
     let prevId:number = this.weaponNumber - 1;
     if (prevId < 0) { prevId = 0; }
-    this.router.navigate(['/Weapons/allweapons',prevId])
+    this.router.navigate(['/Weapons/day2weapons',prevId])
   }
   back():void{
-    this.router.navigate(['/Weapons/allweapons']);
+    this.router.navigate(['/Weapons/day2weapons']);
   }
   next():void{
     let nextId:number = this.weaponNumber + 2;
-    this.router.navigate(["/Weapons/allweapons",nextId])
+    this.router.navigate(["/Weapons/day2weapons",nextId])
   }
 
   sendToService(){

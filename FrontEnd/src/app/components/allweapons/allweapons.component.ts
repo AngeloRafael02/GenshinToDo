@@ -58,6 +58,6 @@ export class AllWeaponsComponent implements OnInit {
     this._weaponService.getAllDaysWeapons(3).subscribe(data => this.InazumaWeapons = data)
   }
   onSelect(Weapon:weaponInterface):void{ //navigates to a route according to the id number of the character
-    this.router.navigate(['/Weapons', Weapon.id]);
+    this.router.navigate(['/Weapons/allweapons', Weapon.id]);
   }
 }
