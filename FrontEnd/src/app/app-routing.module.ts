@@ -19,9 +19,25 @@ import { Day3weaponsComponent } from './components/day3weapons/day3weapons.compo
 import { Day1CharacterDetailsComponent } from './components/day1-character-details/day1-character-details.component';
 import { Day2CharacterDetailsComponent } from './components/day2-character-details/day2-character-details.component';
 import { Day3CharacterDetailsComponent } from './components/day3-character-details/day3-character-details.component';
+import { Day1WeaponDetailsComponent } from './components/day1-weapon-details/day1-weapon-details.component';
+import { Day2WeaponDetailsComponent } from './components/day2-weapon-details/day2-weapon-details.component';
+import { Day3WeaponDetailsComponent } from './components/day3-weapon-details/day3-weapon-details.component';
+
+function DefaultChildRoute():string{
+  const CurrentDate = new Date().getDay();
+  if (CurrentDate == 0){
+    return 'Characters/allchars'
+  } else if(CurrentDate == 1 || CurrentDate == 4 ){
+    return 'Characters/day1chars'
+  } else if(CurrentDate == 2 || CurrentDate == 5 ){
+    return 'Characters/day2chars'
+  } else if(CurrentDate == 3 || CurrentDate == 6 ){
+    return 'Characters/day3chars'
+  } else { return '**' }
+}
 
 const routes: Routes = [
-  {path:'', redirectTo:'/Characters/allchars', pathMatch:'full'}, //default Route + child route
+  {path:'', redirectTo:DefaultChildRoute(), pathMatch:'full'}, //default Route + child route
   
   {path:"Characters", component:CharacterViewComponent,
     children:[{path:"allchars", component:AllcharsComponent },
@@ -35,11 +51,15 @@ const routes: Routes = [
   {path:"Characters/day3chars/:id", component:Day3CharacterDetailsComponent},
 
   {path:"Weapons", component:WeaponViewComponent,
-    children:[{path:"allWeapons", component:AllWeaponsComponent},
+    children:[{path:"allweapons", component:AllWeaponsComponent},
               {path:"day1weapons", component:Day1weaponsComponent},
               {path:"day2weapons", component:Day2weaponsComponent},
               {path:"day3weapons", component:Day3weaponsComponent}]
-  },{path:"Weapons/:id", component:WeaponDetailsComponent},
+  },
+  {path:"Weapons/allweapons/:id", component:WeaponDetailsComponent},
+  {path:"Weapons/day1weapons/:id", component:Day1WeaponDetailsComponent},
+  {path:"Weapons/day2weapons/:id", component:Day2WeaponDetailsComponent},
+  {path:"Weapons/day3weapons/:id", component:Day3WeaponDetailsComponent},
 
   {path:"**", component:NotFoundComponent} //Wildcard Route
 ];
@@ -50,16 +70,18 @@ const routes: Routes = [
     ,RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 export const routingComponents = [ //Stored all components in an array for export in app.module.ts
   CharacterViewComponent,
-  //CHARACTER CHILD COMPONENTS
-  AllcharsComponent,Day1charsComponent,Day2charsComponent,Day3charsComponent,
-  Day1CharacterDetailsComponent,Day2CharacterDetailsComponent,Day3CharacterDetailsComponent,
-  //WEAPONS CHILD COMPONENTS
-  AllWeaponsComponent,Day1weaponsComponent,Day2weaponsComponent,Day3weaponsComponent,
-  CharacterDetailsComponent,
   WeaponViewComponent, 
   WeaponDetailsComponent,
   NotFoundComponent,
+  //CHARACTER CHILD COMPONENTS
+  AllcharsComponent,Day1charsComponent,Day2charsComponent,Day3charsComponent,
+  //CHARACTER DETAIL COMPONENTS
+  Day1CharacterDetailsComponent,Day2CharacterDetailsComponent,Day3CharacterDetailsComponent,
+  //WEAPONS CHILD COMPONENTS
+  AllWeaponsComponent,Day1weaponsComponent,Day2weaponsComponent,Day3weaponsComponent,
+  //CHARACTER DETAIL COMPONENTS
+  CharacterDetailsComponent,Day1WeaponDetailsComponent,Day2WeaponDetailsComponent,Day3WeaponDetailsComponent,
   ];
