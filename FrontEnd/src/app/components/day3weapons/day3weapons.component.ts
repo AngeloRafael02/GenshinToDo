@@ -7,30 +7,30 @@ import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
   template: `
   <p>DANDELION GLADIATOR (Cecilia Garden, Mondstadt)</p>
   <div class="container">
-  <ul  *ngFor="let Weapon of MondstadtWeapons" >
+  <ul  *ngFor="let Weapon of MondstadtWeapons; let i = index" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect(Weapon)" >
+          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+1)" >
           </abbr>
       </li>
   </ul>
   </div>
   <p>AEROSIDERITE (Hidden Palace of Lianshan Formula, Liyue)</p>
   <div class="container">
-  <ul  *ngFor="let Weapon of LiyueWeapons" >
+  <ul  *ngFor="let Weapon of LiyueWeapons; let i = index" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect(Weapon)" >
+          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+20)" >
           </abbr>
       </li>
   </ul>
   </div>
   <p>MASK (Court of Flowing Sand, Inazuma)</p>
   <div class="container">
-  <ul  *ngFor="let Weapon of InazumaWeapons" >
+  <ul  *ngFor="let Weapon of InazumaWeapons; let i = index" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect(Weapon)" >
+          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+37)" >
           </abbr>
       </li>
   </ul>
@@ -58,6 +58,8 @@ export class Day3weaponsComponent extends BaseWeaponClassComponent implements On
   onSelect(Weapon:weaponInterface):void{
     this.router.navigate(['/Weapons',Weapon.id])
   }
-
+  onSelect2(index:number){  
+    this.router.navigate(['/Weapons/day3weapons',index]);
+  }
 
 }
