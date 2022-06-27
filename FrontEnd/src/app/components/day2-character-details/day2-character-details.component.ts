@@ -3,26 +3,7 @@ import { CharacterDetailsBase } from '../Utils/base-character-detail.component';
 
 @Component({
   selector: 'app-day2-character-details',
-  template: `
-  <h4>Characters</h4>
-  <button class="btn btn-secondary" (click)="prev()">PREV</button>
-  <button class="btn btn-secondary" (click)="back()">BACK</button> 
-  <button class="btn btn-secondary" (click)="next()">NEXT</button><br>
-  <div class="row">
-  <div class="col-2">
-    <img class="CharItem" src="{{ content[charNumber].imgurl }}" alt="{{ content[charNumber].name }}">
-  </div>
-  <div class="col-10">
-    <p>Name: {{ content[charNumber].name | uppercase }} ({{content[charNumber].type}} user)</p>
-    <p>Element: {{content[charNumber].element}}</p>
-    <p>Region: {{ content[charNumber].region }}</p>
-    <p>Talent Domain: {{ content[charNumber].domainname }}</p>
-    <p>Talent Material: {{ content[charNumber].material }}</p>
-    <p>Available Days: {{ content[charNumber].days }}</p>
-    <button (click)="sendToService()" class="Add btn btn-secondary">Add Talent Material To List Input</button>
-  </div>
-  </div>
-  `,
+  templateUrl:'../../templates/characterDetails.html',
   styles: [`
   .CharItem{ max-width:160%; }
   p, .Add {margin-left:40px; margin-bottom:10px;}` ]
