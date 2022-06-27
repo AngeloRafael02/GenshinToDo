@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-import { weaponInterface } from '../../interfaces';
-import { ToDoService, WeaponService } from '../../main.service';
+import { Component, Injector, OnInit } from '@angular/core';
+import { WeaponDetailsBase } from '../Utils/base-weapon-details.component';
 
 @Component({
   selector: 'app-weapon-details',
@@ -20,24 +18,21 @@ import { ToDoService, WeaponService } from '../../main.service';
     <p>Domain: {{weapons[weaponNumber].domainname}}</p>
     <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
     <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
-    <button (click)="sendToService()" class="btn btn-secondary">Add Talent Material To List Input</button>
+    <button (click)="Send2Service(weapons[weaponNumber].material, weapons[weaponNumber].name , weapons[weaponNumber].domainname)" class="btn btn-secondary">Add Talent Material To List Input</button>
   </div>
   </div>`,
   styles: [`
   .WeaponItem{ max-width:160%; }
   p{ margin-left:40px; }`]
 })
-export class WeaponDetailsComponent implements OnInit {
+export class WeaponDetailsComponent extends WeaponDetailsBase implements OnInit {
 
-  public weapons:weaponInterface[] = [];
-  public weaponNumber:number = 0; 
+  public weapons = super.weapon
+  public weaponNumber = super.Number
 
   constructor(
-    private _mainService:WeaponService,
-    private _toDoService:ToDoService,
-    private route:ActivatedRoute,
-    private router:Router
-  ) { }
+    Injector:Injector
+  ) { super(Injector) }
 
   ngOnInit(): void {
     this.weaponNumber = this.route.snapshot.params['id']
@@ -64,8 +59,7 @@ export class WeaponDetailsComponent implements OnInit {
     this.router.navigate(["/Weapons/allweapons",nextId])
   }
 
-  sendToService(){
-    this._toDoService
-      .testMethod(`Grind ${this.weapons[this.weaponNumber].material} for ${this.weapons[this.weaponNumber].name} from ${this.weapons[this.weaponNumber].domainname}`)
+  Send2Service(Material:string, Name:string, domain:string){
+    super.sendItemToService(Material, Name, domain)
   }
 }

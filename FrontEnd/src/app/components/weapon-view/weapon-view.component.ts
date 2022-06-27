@@ -9,13 +9,13 @@ import { WeaponService } from '../../main.service';
   <h4>Weapons</h4>
   <nav class="row">
     <ul>
-        <li><button (click)="showAllWeapons()" type="button" class="btn btn-outline-primary">Sunday</button></li>
-        <li><button (click)="showDay1Weapons()" type="button" class="btn btn-outline-primary">Monday</button></li>
-        <li><button (click)="showDay2Weapons()" type="button" class="btn btn-outline-primary">Tuesday</button></li>
-        <li><button (click)="showDay3Weapons()" type="button" class="btn btn-outline-primary">Wednesday</button></li>
-        <li><button (click)="showDay1Weapons()" type="button" class="btn btn-outline-primary">Thursday</button></li>
-        <li><button (click)="showDay2Weapons()" type="button" class="btn btn-outline-primary">Friday</button></li>
-        <li><button (click)="showDay3Weapons()" type="button" class="btn btn-outline-primary">Saturday</button></li>
+        <li><button (click)="showAll()" type="button" class="btn btn-outline-primary">Sunday</button></li>
+        <li><button (click)="showDay1()" type="button" class="btn btn-outline-primary">Monday</button></li>
+        <li><button (click)="showDay2()" type="button" class="btn btn-outline-primary">Tuesday</button></li>
+        <li><button (click)="showDay3()" type="button" class="btn btn-outline-primary">Wednesday</button></li>
+        <li><button (click)="showDay1()" type="button" class="btn btn-outline-primary">Thursday</button></li>
+        <li><button (click)="showDay2()" type="button" class="btn btn-outline-primary">Friday</button></li>
+        <li><button (click)="showDay3()" type="button" class="btn btn-outline-primary">Saturday</button></li>
     </ul>
   </nav>
   <div class="container">
@@ -55,16 +55,16 @@ export class WeaponViewComponent implements OnInit {
     return Weapon.id === this.weaponNumber
   }
 
-  showAllWeapons(){
-    this.router.navigate(['allWeapons'],{relativeTo:this.route})
+  showAll(){
+    this.router.navigate(['allweapons'],{relativeTo:this.route})
   }
-  showDay1Weapons(){
+  showDay1(){
     this.router.navigate(['day1weapons'],{relativeTo:this.route})
   }
-  showDay2Weapons(){
+  showDay2(){
     this.router.navigate(['day2weapons'],{relativeTo:this.route})
   }
-  showDay3Weapons(){
+  showDay3(){
     this.router.navigate(['day3weapons'],{relativeTo:this.route})
   }
 

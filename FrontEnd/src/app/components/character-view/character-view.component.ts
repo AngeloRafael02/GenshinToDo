@@ -8,13 +8,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   <h4>Characters</h4>
   <nav class="row">
       <ul>
-          <li><button (click)="showAllCharacters()" type="button" class="btn btn-outline-primary">Sunday</button></li>
-          <li><button (click)="showDay1Characters()" type="button" class="btn btn-outline-primary">Monday</button></li>
-          <li><button (click)="showDay2Characters()" type="button" class="btn btn-outline-primary">Tuesday</button></li>
-          <li><button (click)="showDay3Characters()" type="button" class="btn btn-outline-primary">Wednesday</button></li>
-          <li><button (click)="showDay1Characters()" type="button" class="btn btn-outline-primary">Thursday</button></li>
-          <li><button (click)="showDay2Characters()" type="button" class="btn btn-outline-primary">Friday</button></li>
-          <li><button (click)="showDay3Characters()" type="button" class="btn btn-outline-primary">Saturday</button></li>
+          <li><button (click)="showAll()" type="button" class="btn btn-outline-primary">Sunday</button></li>
+          <li><button (click)="showDay1()" type="button" class="btn btn-outline-primary">Monday</button></li>
+          <li><button (click)="showDay2()" type="button" class="btn btn-outline-primary">Tuesday</button></li>
+          <li><button (click)="showDay3()" type="button" class="btn btn-outline-primary">Wednesday</button></li>
+          <li><button (click)="showDay1()" type="button" class="btn btn-outline-primary">Thursday</button></li>
+          <li><button (click)="showDay2()" type="button" class="btn btn-outline-primary">Friday</button></li>
+          <li><button (click)="showDay3()" type="button" class="btn btn-outline-primary">Saturday</button></li>
       </ul>
   </nav>
   <div class="container">
@@ -51,16 +51,16 @@ export class CharacterViewComponent implements OnInit {
     return Character.id === this.selectedId
   }
 
-  showAllCharacters():void{
+  showAll():void{
     this.router.navigate(['allchars'], {relativeTo:this.route})
   }
-  showDay1Characters(){
+  showDay1(){
     this.router.navigate(['day1chars'], {relativeTo:this.route})
   }
-  showDay2Characters(){
+  showDay2(){
     this.router.navigate(['day2chars'], {relativeTo:this.route})
   }
-  showDay3Characters(){
+  showDay3(){
     this.router.navigate(['day3chars'], {relativeTo:this.route})
   }
 }

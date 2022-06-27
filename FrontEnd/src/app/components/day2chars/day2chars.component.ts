@@ -1,5 +1,4 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { characterInterface } from '../../interfaces';
 import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({

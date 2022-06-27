@@ -1,44 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { weaponInterface } from 'src/app/interfaces';
-import { ToDoService, WeaponService } from 'src/app/main.service';
+import { Component, Injector, OnInit } from '@angular/core';
+import { WeaponDetailsBase } from '../Utils/base-weapon-details.component';
 
 @Component({
   selector: 'app-day2-weapon-details',
-  template: `
-  <h4>Weapons</h4>
-  <button (click)="prev()" class="btn btn-secondary">PREV</button>
-  <button (click)="back()" class="btn btn-secondary">BACK</button> 
-  <button (click)="next()" class="btn btn-secondary">NEXT</button><br>
-  <div class="row">
-  <div class="col-2">
-  <img class="WeaponItem" src="{{ weapons[weaponNumber].imgurl }}" alt="{{ weapons[weaponNumber].name }}">
-  </div>  
-  <div class="col-10">
-    <p>Name: {{ weapons[weaponNumber].name | uppercase }} ({{weapons[weaponNumber].type}} user)</p>  
-    <p>Second Stat: {{weapons[weaponNumber].stat}} </p>
-    <p>Domain: {{weapons[weaponNumber].domainname}}</p>
-    <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
-    <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
-    <button (click)="sendToService()" class="btn btn-secondary">Add Talent Material To List Input</button>
-  </div>
-  </div>
-  `,
+  templateUrl:'../../templates/weaponDetails.html',
   styles: [`
   .WeaponItem{ max-width:160%; }
   p{ margin-left:40px; }`]
 })
-export class Day2WeaponDetailsComponent implements OnInit {
+export class Day2WeaponDetailsComponent extends WeaponDetailsBase implements OnInit {
 
-  public weapons:weaponInterface[]=[];
-  public weaponNumber:number = 0; 
+  public weapons = super.weapon
+  public weaponNumber = super.Number
 
   constructor(
-    private _mainService:WeaponService,
-    private _toDoService:ToDoService,
-    private route:ActivatedRoute,
-    private router:Router
-  ) { }
+    Injector:Injector
+  ) { super(Injector) }
 
   ngOnInit(): void {
     this.weaponNumber = this.route.snapshot.params['id']
@@ -64,8 +41,7 @@ export class Day2WeaponDetailsComponent implements OnInit {
     this.router.navigate(["/Weapons/day2weapons",nextId])
   }
 
-  sendToService(){
-    this._toDoService
-      .testMethod(`Grind ${this.weapons[this.weaponNumber].material} for ${this.weapons[this.weaponNumber].name} from ${this.weapons[this.weaponNumber].domainname}`)
+  Send2Service(Material:string, Name:string, domain:string){
+    super.sendItemToService(Material, Name, domain)
   }
 }

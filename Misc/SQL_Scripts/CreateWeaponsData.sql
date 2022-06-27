@@ -15,7 +15,7 @@ VALUES
 ('Debate Club',                          3, 2, 1, 4, 5, 2, '../../assets/data/images/weapons/DebateClub.png'),
 ('Skyrider Greatsword',                  3, 2, 4, 4, 6, 3, '../../assets/data/images/weapons/SkyriderGreatsword.png'),
 ('White Tassel',                         3, 3, 8, 4, 4, 1, '../../assets/data/images/weapons/WhiteTassel.png'),
-('Halberd',                              3, 3, 1, 2, 5, 2, '../../assets/data/images/weapons/Halberd.png'),
+('Halberd',                              3, 3, 1, 4, 5, 2, '../../assets/data/images/weapons/Halberd.png'),
 ('Black Tassel',                         3, 3, 2, 4, 6, 3, '../../assets/data/images/weapons/BlackTassel.png'),
 ('Amber Bead',                           3, 4, 6, 4, 6, 3, '../../assets/data/images/weapons/AmberBead.png'),
 ('Magic Guide',                          3, 4, 6, 2, 1, 1, '../../assets/data/images/weapons/MagicGuide.png'),
@@ -64,7 +64,7 @@ VALUES
 ('Blackcliff Pole',                      4, 3, 7, 4, 5, 2, '../../assets/data/images/weapons/BlackcliffPole.png'),
 ('Deathmatch',                           4, 3, 8, 2, 2, 2, '../../assets/data/images/weapons/Deathmatch.png'),
 ('Favonius Lance',                       4, 3, 5, 2, 3, 3, '../../assets/data/images/weapons/FavoniusLance.png'),
-('Royal Spear',                          4, 3, 1, 2, 5, 2, '../../assets/data/images/weapons/RoyalSpear.png'),
+('Royal Spear',                          4, 3, 1, 4, 5, 2, '../../assets/data/images/weapons/RoyalSpear.png'),
 ('Dragonspine Spear',                    4, 3, 4, 2, 2, 2, '../../assets/data/images/weapons/DragonspineSpear.png'),
 ('Lithic Spear',                         4, 3, 1, 4, 6, 3, '../../assets/data/images/weapons/LithicSpear.png'),
 ('Kitain Cross Spear',                   4, 3, 6, 6, 9, 3, '../../assets/data/images/weapons/KitainCrossSpear.png'),
@@ -119,7 +119,7 @@ VALUES
 ('Engulfing Lighting',                   5, 3, 5, 6, 9, 3, '../../assets/data/images/weapons/EngulfingLightning.png'),
 ('Calamity Queller',                     5, 3, 1, 4, 5, 2, '../../assets/data/images/weapons/CalamityQueller.png'),
 ('Lost Prayer to the Sacred Winds',      5, 4, 8, 2, 3, 3, '../../assets/data/images/weapons/LostPrayerToTheSacredWinds.png'),
-('Skyward Atlas',                        5, 4, 1, 3, 2, 2, '../../assets/data/images/weapons/SkywardAtlas.png'),
+('Skyward Atlas',                        5, 4, 1, 2, 2, 2, '../../assets/data/images/weapons/SkywardAtlas.png'),
 ('Memory of Dust',                       5, 4, 1, 4, 6, 3, '../../assets/data/images/weapons/MemoryOfDust.png'),
 ('Everlasting Moonglow',                 5, 4, 2, 6, 7, 1, '../../assets/data/images/weapons/EverlastingMoonglow.png'),
 ('Kagura''s Verity',                     5, 4, 7, 6, 9, 3, '../../assets/data/images/weapons/KagurasVerity.png'),
@@ -130,3 +130,6 @@ VALUES
 ('Polar Star',                           5, 5, 8, 6, 9, 3, '../../assets/data/images/weapons/PolarStar.png'),
 ('Aqua Simulacra ',                      5, 5, 7, 4, 4, 1, '../../assets/data/images/weapons/AquaSimulacra.png')
 ;
+UPDATE weapons SET domain_id = 2 WHERE id = 115 ;
+UPDATE weapons SET domain_id = 4 WHERE id = 13 ;
+UPDATE weapons SET domain_id = 4 WHERE id = 61 ;
