@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { characterInterface } from '../../interfaces';
 import { MainService } from '../../main.service';
 import { Router } from '@angular/router';
+import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({
   selector: 'app-allchars',
@@ -38,17 +39,16 @@ import { Router } from '@angular/router';
   </div>`,
   styleUrls: ['allchars.component.scss']
 })
-export class AllcharsComponent implements OnInit {
+export class AllcharsComponent extends BaseCharacterClassComponent implements OnInit {
 
-  public selectedId:number = 0;
-  public MondstadtCharacters:characterInterface[] = [];
-  public LiyueCharacters:characterInterface[]=[];
-  public InazumaCharacters:characterInterface[]=[];
+
+  public MondstadtCharacters = super.Characters;
+  public LiyueCharacters = super.Characters;
+  public InazumaCharacters = super.Characters;
   
-  constructor(
-    private _mainService:MainService,
-    private router:Router
-  ) { }
+  constructor(injector:Injector) {
+    super(injector)
+  }
 
   ngOnInit(): void {
     this._mainService.getAllCharacters(1).subscribe(data => this.MondstadtCharacters = data);

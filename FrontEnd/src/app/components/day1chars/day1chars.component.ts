@@ -1,5 +1,4 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { characterInterface } from '../../interfaces';
 import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({
@@ -40,16 +39,14 @@ import { BaseCharacterClassComponent } from '../Utils/base-character-class.compo
 })
 export class Day1charsComponent extends BaseCharacterClassComponent implements OnInit {
 
-  public selectedId = super.Id;
+
   public MondstadtCharacters = super.Characters;
   public LiyueCharacters = super.Characters;
   public InazumaCharacters = super.Characters;
 
-  constructor(
-   injector:Injector
-  ) {
+  constructor(injector:Injector) {
     super(injector)
-   }
+  }
 
   ngOnInit(): void {
     this._mainService.getDay1Characters(1).subscribe(data => this.MondstadtCharacters = data);
