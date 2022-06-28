@@ -6,7 +6,6 @@ import { WeaponService } from 'src/app/main.service';
 
 export class BaseWeaponClassComponent  {
 
-  public Id:number = 0;
   public Weapons:weaponInterface[] = [];
 
   protected _weaponService:WeaponService;
@@ -16,4 +15,5 @@ export class BaseWeaponClassComponent  {
     this._weaponService = WeaponClassInjector.get(WeaponService);
     this.router = WeaponClassInjector.get(Router)
   }
+  
 }

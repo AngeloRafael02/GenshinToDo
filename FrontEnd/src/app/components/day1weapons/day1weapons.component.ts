@@ -1,5 +1,4 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { weaponInterface } from '../../interfaces';
 import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
 
 @Component({
@@ -10,7 +9,7 @@ import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
   <ul  *ngFor="let Weapon of MondstadtWeapons; let i = index;" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+1)" >
+          <img class="WeaponPic" [ngClass]="BackGroundClass" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+1)" >
           </abbr>
       </li>
   </ul>
@@ -20,7 +19,7 @@ import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
   <ul  *ngFor="let Weapon of LiyueWeapons; let i = index;" >
       <li >
           <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+18)" >
+          <img class="WeaponPic"  src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+18)" >
           </abbr>
       </li>
   </ul>
@@ -39,7 +38,6 @@ import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
 })
 export class Day1weaponsComponent extends BaseWeaponClassComponent implements OnInit {
 
-  public selectedId = super.Id;
   public MondstadtWeapons = super.Weapons;
   public LiyueWeapons = super.Weapons;
   public InazumaWeapons= super.Weapons;
@@ -58,4 +56,5 @@ export class Day1weaponsComponent extends BaseWeaponClassComponent implements On
     this.router.navigate(['/Weapons/day1weapons',index]);
   }
 
+  BackGroundClass = {"background-color":"blue"}
 }
