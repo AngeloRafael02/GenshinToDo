@@ -1,20 +1,23 @@
 
 <div class="container">
-{{title}}
+<h2>{{title}}</h2>
 <div class="row">
-    <div class="col-md-4"> <!--Clock-->
+    <div class="col-md-6"> <!--Clock-->
         <app-clock></app-clock>
-        <app-timer></app-timer> 
+        
     </div>
-    <div class="col-md-8"> <!--NavBar-->
+    <div class="col-md-6">
+        <app-timer></app-timer>
+    </div>
+</div>
+    <div class="col-md-12"> <!--NavBar-->
         <nav>
             <ul>
-                <li><a routerLink="/Characters/allchars">Characters</a></li>
-                <li><a routerLink="/Weapons/allweapons">Weapons</a></li>
+                <li><button class="btn btn-outline-primary" routerLink="/Characters/allchars">Characters</button></li>
+                <li><button class="btn btn-outline-primary" routerLink="/Weapons/allweapons">Weapons</button></li>
             </ul>
         </nav>
     </div>
-</div>
     <div class="col-md-12"> <!--View-->
         <router-outlet ></router-outlet>
     </div>
