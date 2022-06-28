@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
-  template: ` <p>{{hour}}:{{minute}}:{{second}},{{ampm}}</p>`,
+  template: ` <p> Current Date: {{hour}}:{{minute}}:{{second}} , {{ampm}}</p>`,
   styles: [``]
 })
 export class ClockComponent implements OnInit {
@@ -27,7 +27,7 @@ export class ClockComponent implements OnInit {
    //getDay() returns the day in integer format, from 0 to 6 then takes the corresponding date from the daysArray
   }
 
-  private updateDate(date:Date):string{
+  private updateDate(date:Date){
     const hours:number = date.getHours(); // gets the hours from the date
     this.ampm = hours >= 12 ? 'PM' : 'AM';
     this.hour = hours % 12; //makes the times in hours format
@@ -39,7 +39,5 @@ export class ClockComponent implements OnInit {
 
     const seconds:number = date.getSeconds(); //gets the seconds from the date
     this.second = seconds < 10 ? '0' + seconds : seconds.toString();
-
-    return this.hour + ":" + this.minute + ':' + this.second;
   }
 }
