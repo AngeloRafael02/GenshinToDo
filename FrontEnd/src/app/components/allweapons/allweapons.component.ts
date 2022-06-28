@@ -40,13 +40,12 @@ import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
 })
 export class AllWeaponsComponent extends BaseWeaponClassComponent implements OnInit {
 
-  public selectedID = super.Id;
   public MondstadtWeapons = super.Weapons;
   public LiyueWeapons = super.Weapons;
   public InazumaWeapons = super.Weapons;
 
-  constructor(WeaponClassInjector:Injector) {
-     super(WeaponClassInjector)
+  constructor(Injector:Injector) {
+     super(Injector)
   }
 
   ngOnInit(): void {
@@ -58,4 +57,5 @@ export class AllWeaponsComponent extends BaseWeaponClassComponent implements OnI
   onSelect2(index:number){  
     this.router.navigate(['/Weapons/allweapons',index]);
   }
+  //attempt to make a ngClass for weapon Back-ground
 }

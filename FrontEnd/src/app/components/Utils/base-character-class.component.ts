@@ -6,7 +6,6 @@ import { MainService } from 'src/app/main.service';
 
 export class BaseCharacterClassComponent  {
 
-  public Id:number = 0;
   public Characters:characterInterface[] = [];
 
   protected _mainService:MainService;

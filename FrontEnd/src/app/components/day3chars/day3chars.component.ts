@@ -40,7 +40,6 @@ import { BaseCharacterClassComponent } from '../Utils/base-character-class.compo
 })
 export class Day3charsComponent  extends BaseCharacterClassComponent implements OnInit {
 
-  public selectedId = super.Id;
   public MondstadtCharacters = super.Characters;
   public LiyueCharacters = super.Characters;
   public InazumaCharacters = super.Characters;

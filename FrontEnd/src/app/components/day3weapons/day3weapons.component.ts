@@ -39,7 +39,6 @@ import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
 })
 export class Day3weaponsComponent extends BaseWeaponClassComponent implements OnInit {
 
-  public selectedId = super.Id;
   public MondstadtWeapons = super.Weapons;
   public LiyueWeapons = super.Weapons;
   public InazumaWeapons= super.Weapons;

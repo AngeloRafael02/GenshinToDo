@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
-  template: `<p>{{mainTimer()}}</p>`,
+  template: `<p>Daily Reset Countdown: {{mainTimer()}}</p>`,
   styles: [``]
 })
 export class TimerComponent implements OnInit {
@@ -27,7 +27,7 @@ export class TimerComponent implements OnInit {
 
   private TimerReset(now:Date):Date{
     var ResetDay:Date = new Date();
-    ResetDay.setDate(now.getDate() + (8 - 1 - now.getDay() + 8) % 7 + 1);
+    ResetDay.setDate(now.getDate() + (1 - now.getDay() + 8) % 7 + 1);
     switch (ResetDay.getTimezoneOffset()){
       //ASIA SERVER (UTC/GMT +8) --Not included, people from outside asia playing in asia server
       case -480:ResetDay.setHours(4,0,0,0); //Asia / Singapore/Malaysia/Philippines
@@ -40,7 +40,6 @@ export class TimerComponent implements OnInit {
         break;
       
     }
-    //console.log(ResetDay.toLocaleString())
     return ResetDay;
   }
 
@@ -71,7 +70,7 @@ export class TimerComponent implements OnInit {
       this.clsSecond = numSecond == 60 ? '00' : this.clsSecond;
 
     if (numDay == 0 && numHour == 0 && numMinute == 0 && numSecond == 0){
-      return "00:00:00:00";
+      return "00:00:00:00 Please Refresh Page";
     }
     else {
       return this.clsDay + ":" + this.clsHour + ":" + this.clsMinute + ":" + this.clsSecond;
