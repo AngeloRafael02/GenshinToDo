@@ -18,7 +18,8 @@ Day1WeaponRoutes.get(['/All'],async function (req,res) {
            ORDER BY WeaponDomainMaterials.id, star, WeaponTypes.id, Weapons.id ASC;`);
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day1WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
@@ -27,7 +28,8 @@ Day1WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
             "SELECT * FROM Day1Weapons WHERE material = 'Decarabian';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 })
 Day1WeaponRoutes.get(['/Liyue'],async function (req,res) {
@@ -36,7 +38,8 @@ Day1WeaponRoutes.get(['/Liyue'],async function (req,res) {
             "SELECT * FROM Day1Weapons WHERE material = 'Guyun';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day1WeaponRoutes.get(['/Inazuma'],async function (req,res) {
@@ -45,7 +48,8 @@ Day1WeaponRoutes.get(['/Inazuma'],async function (req,res) {
             "SELECT * FROM Day1Weapons WHERE material = 'Distant Sea';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 
