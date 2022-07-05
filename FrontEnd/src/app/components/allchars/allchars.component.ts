@@ -1,46 +1,12 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { characterInterface } from '../../interfaces';
-import { MainService } from '../../main.service';
-import { Router } from '@angular/router';
+import { characterInterface } from 'src/app/interfaces';
 import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({
-  selector: 'app-allchars',
-  template: `
-  <p>ALL TALENT BOOKS (Forsaken Rift, Mondstadt)</p>
-  <div class="container">
-  <ul  *ngFor="let Character of MondstadtCharacters; let i = index" >
-      <li >
-          <abbr title="{{Character.name}}">
-          <img class="CharItem" src="{{Character.imgurl}}" alt="{{Character.name}}" (click)="onSelect2(i+1)" >
-          </abbr>
-      </li>
-  </ul>
-  </div>
-  <p>ALL TALENT BOOKS (Taishan Mansion, Liyue)</p>
-  <div class="container">
-  <ul  *ngFor="let Character of LiyueCharacters; let i = index" >
-      <li >
-          <abbr title="{{Character.name}}">
-          <img class="CharItem" src="{{Character.imgurl}}" alt="{{Character.name}}" (click)="onSelect2(i+21)" >
-          </abbr>
-      </li>
-  </ul>
-  </div>
-  <p>ALL TALENT BOOKS (Violet Court, Inazuma)</p>
-  <div class="container">
-  <ul  *ngFor="let Character of InazumaCharacters; let i = index" >
-      <li >
-          <abbr title="{{Character.name}}">
-          <img class="CharItem" src="{{Character.imgurl}}" alt="{{Character.name}}" (click)="onSelect2(i+38)" >
-          </abbr>
-      </li>
-  </ul>
-  </div>`,
-  styleUrls: ['allchars.component.scss']
+  templateUrl: '../../templates/characterView.html',
+  styleUrls: ['../../styles/CharacterAndWeaponView.scss']
 })
 export class AllcharsComponent extends BaseCharacterClassComponent implements OnInit {
-
 
   public MondstadtCharacters = super.Characters;
   public LiyueCharacters = super.Characters;
@@ -56,7 +22,7 @@ export class AllcharsComponent extends BaseCharacterClassComponent implements On
     this._mainService.getAllCharacters(3).subscribe(data => this.InazumaCharacters = data);
   }
 
-  onSelect2(index:number){  
-    this.router.navigate(['Characters/allchars',index]);
+  onSelect(character:characterInterface){
+    this.router.navigate(['Characters/allchars',character.id])
   }
 }
