@@ -17,7 +17,8 @@ Day3WeaponRoutes.get(['/All'],async function (req,res) {
             ORDER BY WeaponDomainMaterials.id, star, WeaponTypes.id, Weapons.id ASC;`);
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day3WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
@@ -26,7 +27,8 @@ Day3WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
             "SELECT * FROM Day3Weapons WHERE material = 'Dandelion Gladiator';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day3WeaponRoutes.get(['/Liyue'],async function (req,res) {
@@ -35,7 +37,8 @@ Day3WeaponRoutes.get(['/Liyue'],async function (req,res) {
             "SELECT * FROM Day3Weapons WHERE material = 'Aerosiderite';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day3WeaponRoutes.get(['/Inazuma'],async function (req,res) {
@@ -44,7 +47,8 @@ Day3WeaponRoutes.get(['/Inazuma'],async function (req,res) {
             "SELECT * FROM Day3Weapons WHERE material = 'Mask';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 

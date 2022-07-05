@@ -1,8 +1,7 @@
-import { Component, Inject, Injector, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { CharacterDetailsBase } from '../Utils/base-character-detail.component';
 
 @Component({
-  selector: 'app-character-details',
   templateUrl:'../../templates/characterDetails.html',
   styles: [`
   .CharItem{ max-width:160%; }
@@ -24,6 +23,7 @@ export class CharacterDetailsComponent extends CharacterDetailsBase implements O
     this._mainService.getAllCharacters(0)
     .subscribe(data => this.content = data);
 
+    //gets id from URL using optional Route Parameters(using the URL as a variable/argument)
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));
       this.charNumber = id-1; //-1 is an Offset because DB's index starts at 1

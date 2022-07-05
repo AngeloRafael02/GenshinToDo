@@ -16,6 +16,7 @@ WeaponsRouter.get('/all', async function(req,res){
         res.json(WeaponResponse.rows);
     } catch (error){
         console.log(error); 
+        res.send('Error 500: Server Error')
     }
 });
 WeaponsRouter.get(['/Mondstadt'], async function(req,res){
@@ -25,6 +26,7 @@ WeaponsRouter.get(['/Mondstadt'], async function(req,res){
         res.json(WeaponResponse.rows);
     } catch (error){
         console.log(error); 
+        res.send('Error 500: Server Error')
     }
 });
 WeaponsRouter.get(['/Liyue'], async function(req,res){
@@ -34,6 +36,7 @@ WeaponsRouter.get(['/Liyue'], async function(req,res){
         res.json(WeaponResponse.rows);
     } catch (error){
         console.log(error); 
+        res.send('Error 500: Server Error')
     }
 });
 WeaponsRouter.get(['/Inazuma'], async function(req,res){
@@ -43,6 +46,7 @@ WeaponsRouter.get(['/Inazuma'], async function(req,res){
         res.json(WeaponResponse.rows);
     } catch (error){
         console.log(error); 
+        res.send('Error 500: Server Error')
     }
 });
 module.exports = {WeaponsRouter}

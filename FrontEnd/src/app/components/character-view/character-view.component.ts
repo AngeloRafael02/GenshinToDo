@@ -8,13 +8,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   <h4>Characters</h4>
   <nav class="row">
       <ul>
-          <li><button (click)="showAll()" type="button" class="btn btn-outline-primary">Sunday</button></li>
-          <li><button (click)="showDay1()" type="button" class="btn btn-outline-primary">Monday</button></li>
-          <li><button (click)="showDay2()" type="button" class="btn btn-outline-primary">Tuesday</button></li>
-          <li><button (click)="showDay3()" type="button" class="btn btn-outline-primary">Wednesday</button></li>
-          <li><button (click)="showDay1()" type="button" class="btn btn-outline-primary">Thursday</button></li>
-          <li><button (click)="showDay2()" type="button" class="btn btn-outline-primary">Friday</button></li>
-          <li><button (click)="showDay3()" type="button" class="btn btn-outline-primary">Saturday</button></li>
+          <li><button (click)="showAll()" type="button" class="btn btn-secondary">Sunday</button></li>
+          <li><button (click)="showDay1()" type="button" class="btn btn-secondary">Monday</button></li>
+          <li><button (click)="showDay2()" type="button" class="btn btn-secondary">Tuesday</button></li>
+          <li><button (click)="showDay3()" type="button" class="btn btn-secondary">Wednesday</button></li>
+          <li><button (click)="showDay1()" type="button" class="btn btn-secondary">Thursday</button></li>
+          <li><button (click)="showDay2()" type="button" class="btn btn-secondary">Friday</button></li>
+          <li><button (click)="showDay3()" type="button" class="btn btn-secondary">Saturday</button></li>
       </ul>
   </nav>
   <div class="container">

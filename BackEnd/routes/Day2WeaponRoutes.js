@@ -17,7 +17,8 @@ Day2WeaponRoutes.get(['/All'],async function (req,res) {
            ORDER BY WeaponDomainMaterials.id, star, WeaponTypes.id, Weapons.id ASC;`);
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day2WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
@@ -26,7 +27,8 @@ Day2WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
             "SELECT * FROM Day2Weapons WHERE material = 'Boreal Wolf';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day2WeaponRoutes.get(['/Liyue'],async function (req,res) {
@@ -35,7 +37,8 @@ Day2WeaponRoutes.get(['/Liyue'],async function (req,res) {
             "SELECT * FROM Day2Weapons WHERE material = 'Mist Veiled';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 Day2WeaponRoutes.get(['/Inazuma'],async function (req,res) {
@@ -44,7 +47,8 @@ Day2WeaponRoutes.get(['/Inazuma'],async function (req,res) {
             "SELECT * FROM Day2Weapons WHERE material = 'Narukami';");
         res.json(WeaponResponse.rows);
     } catch(error){
-        console.log(error)
+        console.log(error);
+        res.send('Error 500: Server Error');
     }
 });
 
