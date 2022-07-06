@@ -6,19 +6,11 @@ Day3WeaponRoutes = express.Router(),
 Day3WeaponRoutes.get(['/All'],async function (req,res) {
     try{
         const WeaponResponse = await pool.query(
-           `SELECT Weapons.id, name, star,  WeaponTypes.Type, SecondStats.Stat, AscensionDomains.DomainName, WeaponDomainMaterials.Material, Availability.Days, ImgURL
-            FROM Weapons
-            JOIN SecondStats ON Weapons.SecondStat_ID = SecondStats.id
-            JOIN WeaponTypes ON Weapons.WeaponType_ID = WeaponTypes.id
-            JOIN AscensionDomains ON Weapons.Domain_ID = AscensionDomains .id
-            JOIN WeaponDomainMaterials ON Weapons.DomainMaterial_id = WeaponDomainMaterials.id
-            JOIN Availability ON Weapons.Availabilties = Availability.id
-            WHERE Availabilties = 3
-            ORDER BY WeaponDomainMaterials.id, star, WeaponTypes.id, Weapons.id ASC;`);
+           `SELECT * FROM AllWeapons`);
         res.json(WeaponResponse.rows);
     } catch(error){
         console.log(error);
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day3WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
@@ -28,7 +20,7 @@ Day3WeaponRoutes.get(['/Mondstadt'],async function (req,res) {
         res.json(WeaponResponse.rows);
     } catch(error){
         console.log(error);
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day3WeaponRoutes.get(['/Liyue'],async function (req,res) {
@@ -38,7 +30,7 @@ Day3WeaponRoutes.get(['/Liyue'],async function (req,res) {
         res.json(WeaponResponse.rows);
     } catch(error){
         console.log(error);
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day3WeaponRoutes.get(['/Inazuma'],async function (req,res) {
@@ -48,7 +40,7 @@ Day3WeaponRoutes.get(['/Inazuma'],async function (req,res) {
         res.json(WeaponResponse.rows);
     } catch(error){
         console.log(error);
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 

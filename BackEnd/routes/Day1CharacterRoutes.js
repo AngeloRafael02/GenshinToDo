@@ -10,7 +10,7 @@ Day1CharRoutes.get(['/All'], async function(req,res){ //Mondstadt
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day1CharRoutes.get(['/Mondstadt'], async function(req,res){ //Mondstadt
@@ -20,7 +20,7 @@ Day1CharRoutes.get(['/Mondstadt'], async function(req,res){ //Mondstadt
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day1CharRoutes.get(['/Liyue'], async function(req,res){ //Liyue
@@ -30,7 +30,7 @@ Day1CharRoutes.get(['/Liyue'], async function(req,res){ //Liyue
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day1CharRoutes.get(['/Inazuma'], async function(req,res){ //Inazuma
@@ -40,7 +40,7 @@ Day1CharRoutes.get(['/Inazuma'], async function(req,res){ //Inazuma
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 

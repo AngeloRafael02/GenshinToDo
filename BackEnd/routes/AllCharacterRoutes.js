@@ -10,7 +10,7 @@ CharRouter.get('/All', async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error')
+        res.status(503).send('Error 503: Server Error');
     }
 }); 
 CharRouter.get('/Mondstadt', async function(req,res){
@@ -20,7 +20,7 @@ CharRouter.get('/Mondstadt', async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error')
+        res.status(503).send('Error 503: Server Error');
     }
 });   
 CharRouter.get('/Liyue', async function(req,res){
@@ -30,7 +30,7 @@ CharRouter.get('/Liyue', async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error')
+        res.status(503).send('Error 503: Server Error');
     }
 });    
 CharRouter.get('/Inazuma', async function(req,res){
@@ -40,7 +40,7 @@ CharRouter.get('/Inazuma', async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error')
+        res.status(503).send('Error 503: Server Error');
     }
 }); 
 
