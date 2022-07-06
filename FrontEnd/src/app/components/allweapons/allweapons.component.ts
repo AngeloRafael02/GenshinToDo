@@ -1,42 +1,10 @@
 import { Component, Injector, OnInit } from '@angular/core';
+import { weaponInterface } from 'src/app/interfaces';
 import { BaseWeaponClassComponent } from '../Utils/base-weapon-class.component';
 
 @Component({
-  selector: 'app-allweapons',
-  template: `
-  <p>All Materials (Cecilia Garden, Mondstadt)</p>
-  <div class="container">
-  <ul  *ngFor="let Weapon of MondstadtWeapons; let i = index;" >
-      <li >
-          <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+1)" >
-          </abbr>
-      </li>
-  </ul>
-  </div>
-  <p>All Materials (Hidden Palace of Lianshan Formula, Liyue)</p>
-  <div class="container">
-  <ul  *ngFor="let Weapon of LiyueWeapons; let i = index;" >
-      <li >
-          <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+56)" >
-          </abbr>
-      </li>
-  </ul>
-  </div>
-  <p>All Materials (Hidden Palace of Lianshan Formula, Liyue)</p>
-  <div class="container">
-  <ul  *ngFor="let Weapon of InazumaWeapons; let i = index;" >
-      <li >
-          <abbr title="{{ Weapon.name }}">
-          <img class="WeaponPic" src="{{ Weapon.imgurl }}" alt="{{ Weapon.name }}" (click)="onSelect2(i+106)" >
-          </abbr>
-      </li>
-  </ul>
-  </div>
- 
-  `,
-  styleUrls: ['allweapons.component.scss']
+  templateUrl:'../../templates/weaponView.html',
+  styleUrls: ['../../styles/CharacterAndWeaponView.scss']
 })
 export class AllWeaponsComponent extends BaseWeaponClassComponent implements OnInit {
 
@@ -53,9 +21,8 @@ export class AllWeaponsComponent extends BaseWeaponClassComponent implements OnI
     this._weaponService.getAllDaysWeapons(2).subscribe(data => this.LiyueWeapons = data)
     this._weaponService.getAllDaysWeapons(3).subscribe(data => this.InazumaWeapons = data)
   }
-
-  onSelect2(index:number){  
-    this.router.navigate(['/Weapons/allweapons',index]);
+  onSelect(Weapon:weaponInterface):void{
+    this.router.navigate(['/Weapons/day1weapons',Weapon.id])
   }
-  //attempt to make a ngClass for weapon Back-ground
+
 }

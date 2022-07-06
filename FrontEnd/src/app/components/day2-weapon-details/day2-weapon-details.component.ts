@@ -2,11 +2,8 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { WeaponDetailsBase } from '../Utils/base-weapon-details.component';
 
 @Component({
-  selector: 'app-day2-weapon-details',
   templateUrl:'../../templates/weaponDetails.html',
-  styles: [`
-  .WeaponItem{ max-width:160%; }
-  p{ margin-left:40px; }`]
+  styleUrls: [`../../styles/CharacterAndWeaponDetails.scss`]
 })
 export class Day2WeaponDetailsComponent extends WeaponDetailsBase implements OnInit {
 

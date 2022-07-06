@@ -11,6 +11,7 @@ Day3CharRoutes.get(['/All'], async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day3CharRoutes.get(['/Mondstadt'], async function(req,res){
@@ -20,7 +21,7 @@ Day3CharRoutes.get(['/Mondstadt'], async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day3CharRoutes.get(['/Liyue'], async function(req,res){
@@ -30,7 +31,7 @@ Day3CharRoutes.get(['/Liyue'], async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 Day3CharRoutes.get(['/Inazuma'], async function(req,res){
@@ -40,7 +41,7 @@ Day3CharRoutes.get(['/Inazuma'], async function(req,res){
         res.json(charResponse.rows);
     } catch (error){
         console.log(error); 
-        res.send('Error 500: Server Error');
+        res.status(503).send('Error 503: Server Error');
     }
 });
 

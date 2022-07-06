@@ -2,12 +2,8 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { CharacterDetailsBase } from '../Utils/base-character-detail.component';
 
 @Component({
-  selector: 'app-day1-character-details',
   templateUrl:'../../templates/characterDetails.html',
-  styles: [`
-  .CharItem{ max-width:160%; }
-  p, .Add {margin-left:40px; margin-bottom:10px;}`
-  ]
+  styleUrls: ['../../styles/CharacterAndWeaponDetails.scss']
 })
 export class Day1CharacterDetailsComponent extends CharacterDetailsBase implements OnInit {
 
