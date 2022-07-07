@@ -6,6 +6,10 @@ import { MainService } from 'src/app/main.service';
 
 export class BaseCharacterClassComponent  {
 
+  public MondstadtDM(){return "Forsaken Rift, Mondstadt"}
+  public LiyueDM(){return "Taishan Mansion, Liyue"}
+  public InazumaDM(){return "Violet Court, Inazuma"}
+
   public Characters:characterInterface[] = [];
 
   protected _mainService:MainService;
