@@ -1,0 +1,30 @@
+<p>{{MondstadtDomain}}</p>
+  <div class="container">
+  <ul  *ngFor="let Content of Mondstadt" >
+      <li >
+          <abbr title="{{Content.name}}">
+          <img class="CharItem" src="{{Content.imgurl}}" alt="{{Content.name}}" (click)="onSelect(Content)" >
+          </abbr>
+      </li>
+  </ul>
+  </div>
+  <p>{{LiyueDomain}}</p>
+  <div class="container">
+  <ul  *ngFor="let Content of Liyue" >
+      <li >
+          <abbr title="{{Content.name}}">
+          <img class="CharItem" src="{{Content.imgurl}}" alt="{{Content.name}}" (click)="onSelect(Content)" >
+          </abbr>
+      </li>
+  </ul>
+  </div>
+  <p>{{InazumaDomain}}</p>
+  <div class="container">
+  <ul  *ngFor="let Content of Inazuma" >
+      <li >
+          <abbr title="{{Content.name}}">
+          <img class="CharItem" src="{{Content.imgurl}}" alt="{{Content.name}}" (click)="onSelect(Content)" >
+          </abbr>
+      </li>
+  </ul>
+  </div>
