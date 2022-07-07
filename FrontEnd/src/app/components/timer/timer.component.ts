@@ -70,10 +70,10 @@ export class TimerComponent implements OnInit {
       this.clsSecond = numSecond == 60 ? '00' : this.clsSecond;
 
     if (numDay == 0 && numHour == 0 && numMinute == 0 && numSecond == 0){
-      return "00:00:00:00 Please Refresh Page";
+      return "00:00:00 Please Refresh Page";
     }
     else {
-      return this.clsDay + ":" + this.clsHour + ":" + this.clsMinute + ":" + this.clsSecond;
+      return this.clsHour + ":" + this.clsMinute + ":" + this.clsSecond;
     }
   }
 }
