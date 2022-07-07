@@ -25,17 +25,8 @@ export class Day2WeaponDetailsComponent extends WeaponDetailsBase implements OnI
     });
   }
 
-  prev():void{
-    let prevId:number = this.weaponNumber - 1;
-    if (prevId < 0) { prevId = 0; }
-    this.router.navigate(['/Weapons/day2weapons',prevId])
-  }
   back():void{
     this.router.navigate(['/Weapons/day2weapons']);
-  }
-  next():void{
-    let nextId:number = this.weaponNumber + 2;
-    this.router.navigate(["/Weapons/day2weapons",nextId])
   }
 
   Send2Service(Material:string, Name:string, domain:string){
