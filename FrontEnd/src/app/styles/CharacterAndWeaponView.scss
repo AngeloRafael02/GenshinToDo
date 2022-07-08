@@ -1,10 +1,15 @@
+p{color:white;}
 ul{
+    padding-top:10px;;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     li { 
     display: inline; 
-    margin-right: 1rem; }
+    margin-right: 1rem;
+    margin-top: 5px;
+    margin-bottom: 5px; }
 }
   /*Character View*/
 .container{
