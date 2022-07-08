@@ -25,18 +25,9 @@ export class Day2CharacterDetailsComponent extends CharacterDetailsBase implemen
       this.charNumber = id-1; //-1 is an Offset because DB's index starts at 1
     });
   }
-  
-  prev():void{
-    let prevId:number = this.charNumber - 1;
-    if (prevId < 0) { prevId = 0; }
-    this.router.navigate(['/Characters/day2chars',prevId])
-  }
+
   back():void{
     this.router.navigate(['/Characters/day2chars']);
-  }
-  next():void{
-    let nextId:number = this.charNumber + 2; // adjustment to help with the Offset
-    this.router.navigate(["/Characters/day2chars",nextId])
   }
   
   sendToService(){

@@ -3,14 +3,18 @@ import { characterInterface } from 'src/app/interfaces';
 import { BaseCharacterClassComponent } from '../Utils/base-character-class.component';
 
 @Component({
-  templateUrl: '../../templates/characterView.html',
+  templateUrl: '../../templates/CharacterAndWeaponView.html',
   styleUrls: ['../../styles/CharacterAndWeaponView.scss']
 })
 export class Day2charsComponent extends BaseCharacterClassComponent implements OnInit {
 
-  public MondstadtCharacters = super.Characters;
-  public LiyueCharacters = super.Characters;
-  public InazumaCharacters = super.Characters;
+  public MondstadtDomain = super.MondstadtDM()
+  public LiyueDomain = super.LiyueDM()
+  public InazumaDomain = super.InazumaDM()
+
+  public Mondstadt = super.Characters;
+  public Liyue = super.Characters;
+  public Inazuma = super.Characters;
 
   constructor(
     injector:Injector
@@ -19,9 +23,9 @@ export class Day2charsComponent extends BaseCharacterClassComponent implements O
     }
 
   ngOnInit(): void {
-    this._mainService.getDay2Characters(1).subscribe(data => this.MondstadtCharacters = data);
-    this._mainService.getDay2Characters(2).subscribe(data => this.LiyueCharacters = data);
-    this._mainService.getDay2Characters(3).subscribe(data=> this.InazumaCharacters = data);
+    this._mainService.getDay2Characters(1).subscribe(data => this.Mondstadt = data);
+    this._mainService.getDay2Characters(2).subscribe(data => this.Liyue = data);
+    this._mainService.getDay2Characters(3).subscribe(data=> this.Inazuma = data);
   }
   onSelect(character:characterInterface)  {
     this.router.navigate(['Characters/day2chars',character.id]);

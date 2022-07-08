@@ -26,17 +26,8 @@ export class Day1CharacterDetailsComponent extends CharacterDetailsBase implemen
     });
   }
   
-  prev():void{
-    let prevId:number = this.charNumber - 1;
-    if (prevId < 0) { prevId = 0; }
-    this.router.navigate(['/Characters/day1chars',prevId])
-  }
   back():void{
     this.router.navigate(['/Characters/day1chars']);
-  }
-  next():void{
-    let nextId:number = this.charNumber + 2; // adjustment to help with the Offset
-    this.router.navigate(["/Characters/day1chars",nextId])
   }
   
   sendToService(){

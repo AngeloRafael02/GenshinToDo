@@ -26,19 +26,10 @@ export class WeaponDetailsComponent extends WeaponDetailsBase implements OnInit 
     });
   }
 
-  prev():void{
-    let prevId:number = this.weaponNumber - 1;
-    if (prevId < 0) { prevId = 0; }
-    this.router.navigate(['/Weapons/allweapons',prevId])
-  }
   back():void{
     this.router.navigate(['/Weapons/allweapons']);
   }
-  next():void{
-    let nextId:number = this.weaponNumber + 2;
-    this.router.navigate(["/Weapons/allweapons",nextId])
-  }
-
+  
   Send2Service(Material:string, Name:string, domain:string){
     super.sendItemToService(Material, Name, domain)
   }

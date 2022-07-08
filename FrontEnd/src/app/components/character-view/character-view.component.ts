@@ -3,29 +3,11 @@ import { characterInterface } from '../../interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-character-view',
-  template:`
-  <h4>Characters</h4>
-  <nav class="row">
-      <ul>
-          <li><button (click)="showAll()" type="button" class="btn btn-secondary">Sunday</button></li>
-          <li><button (click)="showDay1()" type="button" class="btn btn-secondary">Monday</button></li>
-          <li><button (click)="showDay2()" type="button" class="btn btn-secondary">Tuesday</button></li>
-          <li><button (click)="showDay3()" type="button" class="btn btn-secondary">Wednesday</button></li>
-          <li><button (click)="showDay1()" type="button" class="btn btn-secondary">Thursday</button></li>
-          <li><button (click)="showDay2()" type="button" class="btn btn-secondary">Friday</button></li>
-          <li><button (click)="showDay3()" type="button" class="btn btn-secondary">Saturday</button></li>
-      </ul>
-  </nav>
-  <div class="container">
-    <div class="router">
-      <router-outlet></router-outlet>
-    </div>
-  </div>`,
-  styleUrls: ['character-view.component.scss']
+  templateUrl:`../../templates/CharacterAndWeaponMain.html`,
+  styleUrls: [`../../styles/CharacterAndWeaponMain.scss`]
 })
 export class CharacterViewComponent implements OnInit {
-
+  public title = "Characters"
   public selectedId:number = 0;
 
   constructor(
@@ -34,8 +16,6 @@ export class CharacterViewComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-   //service: subscribe to the function calling Character Data
-
   //gets id from URL using optional Route Parameters(using the URL as a variable/argument)
     this.route.paramMap.subscribe((params:any)=>{
       let id = parseInt(params.get('id'));
