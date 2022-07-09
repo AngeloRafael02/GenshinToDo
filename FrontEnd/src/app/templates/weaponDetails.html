@@ -1,5 +1,5 @@
 <h4>Weapons</h4>
-  <button (click)="back()" class="btn btn-secondary">BACK</button><br>
+  <button (click)="back()" class="btn btn-dark">BACK</button><br>
   <div class="row">
   <div class="col-2">
   <img class="WeaponItem" src="{{ weapons[weaponNumber].imgurl }}" alt="{{ weapons[weaponNumber].name }}">
@@ -10,6 +10,6 @@
     <p>Domain: {{weapons[weaponNumber].domainname}}</p>
     <p>Ascend Material: {{weapons[weaponNumber].material}}</p>
     <p>Ascend Days: {{weapons[weaponNumber].days}}</p>
-    <button (click)="Send2Service(weapons[weaponNumber].material, weapons[weaponNumber].name , weapons[weaponNumber].domainname)" class="btn btn-secondary">Add Talent Material To List Input</button>
+    <button (click)="Send2Service(weapons[weaponNumber].material, weapons[weaponNumber].name , weapons[weaponNumber].domainname)" class="btn btn-dark">Add Talent Material To List Input</button>
   </div>
   </div>
