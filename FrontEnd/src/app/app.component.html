@@ -1,9 +1,7 @@
 <div class="main container">
 
-    <div class="navbar navbar-default">
-        <div class="row">
-            <div class="navbar-header"><h2>{{title}}</h2></div>
-        </div>
+    <div class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="navbar-header"><h2 class="navbar-text">{{title}}</h2></div>
     </div>
     
     <div class="row">
@@ -17,23 +15,26 @@
 
     <div class="col-md-12"> <!--NavBar-->
         <nav>
-            <ul>
-                <li><button class="btn btn-secondary" routerLink={{DefaultCharacterChildRoute()}}>Characters</button></li>
-                <li><button class="btn btn-secondary" routerLink={{DefaultWeaponChildRoute()}}>Weapons</button></li>
+            <ul class="view">
+                <li class="item"><button class="btn btn-dark" routerLink={{DefaultCharacterChildRoute()}}>Characters</button></li>
+                <li class="item"><button class="btn btn-dark" routerLink={{DefaultWeaponChildRoute()}}>Weapons</button></li>
             </ul>
         </nav>
     </div>
     <div class="col-md-12"> <!--View-->
         <router-outlet ></router-outlet>
-    </div>
+    </div> <!--add margin bottom into this-->
 
     <div class="ToDo col-md-12"> <!--ToDoList-->
         <div><h4>To Do List</h4></div>
         <app-to-dos></app-to-dos>
     </div>
+
+    <footer class="footer container">
+        Made by: Angelo Rafael Recio <br>
+        Credits to <a href="https://genshin.honeyhunterworld.com/">Honey Impact</a> for the Game's Data, <br>
+        Credits to <a href="https://www.youtube.com/c/Codevolution">Codevolution and his youtube Channel</a> for Teaching the Angular Framework,
+    </footer>
 </div>
-<footer class="footer container">
-    Made by: Angelo Rafael Recio <br>
-    Credits to <a href="https://genshin.honeyhunterworld.com/">Honey Impact</a> for the Game's Data, <br>
-    Credits to <a href="https://www.youtube.com/c/Codevolution">Codevolution and his youtube Channel</a> for Teaching the Angular Framework,
-</footer>
+
+
