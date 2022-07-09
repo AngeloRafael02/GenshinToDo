@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
-  template: ` <p> Current Time: {{hour}}:{{minute}}:{{second}}, {{ampm}}</p>`,
-  styles: [``]
+  template: ` <h3> Current Time: {{hour}}:{{minute}}:{{second}}, {{ampm}}</h3>`,
+  styles: [`h3{text-align:center; padding:20px 0px 20px 0px;}`]
 })
 export class ClockComponent implements OnInit {
 

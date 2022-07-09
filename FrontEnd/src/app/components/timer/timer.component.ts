@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-timer',
-  template: `<p>Daily Reset Countdown: {{mainTimer()}}</p>`,
-  styles: [``]
+  template: `<h3>Daily Reset Countdown: {{mainTimer()}}</h3>`,
+  styles: [`h3{text-align:center; padding:20px 0px 20px 0px;}`]
 })
 export class TimerComponent implements OnInit {
-
-
   public clsDay:string = "";
   public clsHour:string = "";
   public clsMinute:string = "";
@@ -15,7 +13,7 @@ export class TimerComponent implements OnInit {
   
   private now = new Date();
 
-  constructor() { 
+  constructor() {
     this.TimerReset(this.now)
   }
   
