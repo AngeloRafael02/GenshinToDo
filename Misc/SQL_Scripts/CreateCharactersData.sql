@@ -53,5 +53,9 @@ VALUES
 ('Kamisato Ayato',      5, 2, 1, 3, 5, 8, 2, '../../assets/data/images/characters/ayato.png'),
 ('Kuki Shinobu',        4, 4, 1, 3, 5, 8, 2, '../../assets/data/images/characters/shinobu.png'),
 ('Yelan',               5, 2, 5, 2, 3, 4, 1, '../../assets/data/images/characters/yelan.png'),
-('Shikanoin Heizou',    4, 3, 4, 3, 5, 7, 1, '../../assets/data/images/characters/heizo.png')
+('Shikanoin Heizou',    4, 3, 4, 3, 5, 7, 1, '../../assets/data/images/characters/heizo.png'),
+--Unfinished
+--('Collei',              4, 5, 5, 4, , , , '../../assets/data/images/characters/collei.png'),
+--('Dori',                4, 4, 2, 4, , , , '../../assets/data/images/characters/dori.png'),
+--('Tighnari',            5, 5, 5, 4, , , , '../../assets/data/images/characters/tighnari.png'),
 
