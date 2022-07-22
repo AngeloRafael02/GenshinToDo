@@ -21,7 +21,7 @@ app.use('/Day1Weapons', Day1WeaponRoutes);
 app.use('/Day2Weapons', Day2WeaponRoutes);
 app.use('/Day3Weapons', Day3WeaponRoutes)
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000 //default is 3000
 app.listen(PORT, function () {
     console.log(`App now running at LocalHost:${PORT}`);
 });
